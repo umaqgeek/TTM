@@ -1,0 +1,30 @@
+body  {
+	margin:0;
+	padding:0;
+}
+
+#Container {
+	width:980px;
+	height:auto;
+	margin-left:370px;
+	margin-right:370px;
+	margin-top:21px;
+	margin-bottom:21px;
+}
+#Header {
+	height:67px;
+	background-image:url(tuffah1.jpg);
+	background-repeat:no-repeat;
+	margin-bottom:21px;
+		
+}
+#Nav {
+	height:60px;
+	background-color:#000;
+}
+#Content {
+	height:auto;
+}
+#Footer {
+	height:100px;
+}

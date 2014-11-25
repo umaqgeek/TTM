@@ -6,10 +6,10 @@
 <title>Untitled Document</title>
 </head>
 
-<body id="body-color" bgcolor="#339966">
+<body id="body-color" bgcolor="#9999FF">
 <fieldset style="border:groove">
-<img src="tuffah1.jpg" width="1288" height="337" />
-<h1 align="center">Training Plan</h1>
+<img src="tuffah1.jpg" width="1311" height="337" />
+<h1 align="center">Training Plan 1</h1>
 <div id="Container">
 <div id="Navbar"></div>
 <nav>
@@ -25,10 +25,6 @@
 </nav>
 <div id="Content"></div>
 </div>
-<br />
-<br />
-<br />
-<br />
 <table align="center">
 <tr>
 <td>Training Name</td>
@@ -135,6 +131,7 @@
 <br />
 <center>
 <form action="Menu.php" method="post">
+			<input name="Save" type="submit" value="Save" />
 			<input  type="submit" name="Home"value="HOME"/>
 </form>
 </center>

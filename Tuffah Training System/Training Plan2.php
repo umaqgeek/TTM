@@ -6,10 +6,10 @@
 <title>Untitled Document</title>
 </head>
 
-<body id="body-color" bgcolor="#339966">
+<body id="body-color" bgcolor="#9999FF">
 <fieldset style="border:groove">
-<img src="tuffah1.jpg" width="1287" height="308" />
-<h1 align="center">Training Plan</h1>
+<img src="tuffah1.jpg" width="1316" height="308" />
+<h1 align="center">Training Plan 2</h1>
 <div id="Container">
 <div id="Navbar"></div>
 <nav>
@@ -154,6 +154,7 @@
 <br />
 <center>
 <form action="Menu.php">
+<input name="Save" type="submit" value="Save" />
 <input name="Back" type="submit" value="HOME" />
 </form>
 </center>

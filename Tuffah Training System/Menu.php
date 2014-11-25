@@ -7,23 +7,22 @@
 <title>Untitled Document</title>
 </head>
 
-<body id="body-color" bgcolor="#339966">
+<body id="body-color" bgcolor="#9999FF">
 <div id="Container">
 <div id="Head">
-  <p><img src="tuffah1.jpg" width="980" height="245"/></p>
-  <p><font size="20" color="#993333">TUFFAH TRAINING SYSTEM</font></p>
+  <img src="tuffah1.jpg" width="980" height="245"/>
+  <font size="20" color="#993333">TUFFAH TRAINING SYSTEM</font>
 </div>
+
 <div id="Navbar"></div>
 <nav>
 <ul>
 	<li><a href="Menu.php">Home</a></li>
-    <li><a href="Training Plan1.php">Form Application</a></li>
+    <li><a href="Training Plan1.php">Form</a></li>
 	<li><a href="logout.php">Logout</a></li>
 </ul>
 </nav>
 <div id="Content"></div>
-<div id="Footer">
-</div>
 </div>
 </body>
 </html>

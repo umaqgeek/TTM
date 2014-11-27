@@ -1,44 +1,62 @@
-<?
-if (isset ($_POST['User_name']))
-{
-	$username = $_POST['username'];
-	$User_password = $_POST['User_password'];
-	$sql = "SELECT Staff FROM  WHERE username='sufi".$username."' AND 
-	User_password='sufi123".$User_password."'LIMIT 1";
-	$res = mysql_query($sql);
-if (mysql_num_row($res)== 1)
-{
-	$_SESSION['auth']=true;
-	Header ("Location: index.php"); 
-	exit ();
-}
-else
-{
-	echo "Invalid Login";
-	exit();
-	}
-}	
+<?php
+$user="root";
+$pass="";
+$host="localhost";
+$db="training_app";
 ?>
 
-<link rel="stylesheet" type="text/css" href="Style.css" >
-<body id="body-color" bgcolor="#9999FF">
-<center>
-<fieldset style="width:50%">
-<img src="tuffah1.jpg" width="625" height="200"></br></br>
-<h1><i><font size="20" color="#993333">TRAINING APPLICATION</font></i></h1>
-<br/>
+<?php
+if (isset($_POST['StaffUsername'])){
+	
+	$StaffUsername = $_POST['StaffUsername'];
+	$StaffPassword = $_POST['StaffPassword'];
+	$sql = ("SELECT * FROM staff WHERE StaffUsername='$StaffUsername'");
+	$res =($sql!==0);
+	
+if ($res!==0)
+{
+	$_SESSION['auth']=true;
+	Header ("Location:admin.php");
+	exit();
+}
+else{
+	echo "Invalid Username/Password";
+	exit();
+	}
+}
+?>
 
-<form action="Process.php" method="post">
-<font color="#006633">Name :</font>
-  		<input type="text" name="NameUser"/>
+
+
+
+<link href="Menu.css" rel="stylesheet" type="text/css" />
+<body id="body-color" bgcolor="#9999FF">
+<fieldset>
+<img src="tuffah1.jpg" width="1286" height="200"></br></br>
+
+  <center><h1><i><font size="20" color="#993333">TUFFAH TRAINING SYSTEM</font></i></h1></center>
+<table align="center">
+<tr></tr>
+<center>
+<form action="index.php" method="post">
+<td ><font color="#006633">Name</font></td>
+<td > :</td>
+<td ><input type="text" name="StaffUsername"/></td>
 <br />
 <br />
-<font color="#006633">Password :</font><input type="password" name="Userpassword"/><br /><br />
-        <input type="submit" value="Login"  align="absmiddle"/>
-						      
+<tr></tr>
+<td><font color="#006633">Password</font></td>
+<td>:</td>
+<td><input type="password" name="StaffPassword"/></td>
+<br />
+<br />
+<tr>
+<td colspan="3" align="center"><input type="submit" value="Login"></td>						      
 </form>
-</fieldset>
 </center>
+</tr>
+</table>
+</fieldset>
 </div>
 </body>
 

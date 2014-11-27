@@ -9,7 +9,8 @@
 <body id="body-color" bgcolor="#9999FF">
 <fieldset style="border:groove">
 <img src="tuffah1.jpg" width="1311" height="337" />
-<h1 align="center">Training Plan 1</h1>
+<center><font size="20" color="#993333">TUFFAH TRAINING SYSTEM</font></center>
+<h2 align="center"><font color="#993333">FORM 1</font></h2>
 <div id="Container">
 <div id="Navbar"></div>
 <nav>
@@ -53,19 +54,16 @@
 </tr><br /><br />
 </table>
 <br /><br />
+<table width="771" align="center">
+<tr></tr>
+<td>Training Objectives</td>
+<td><input name="Training Objective" type="text" size="90" maxlength="90" /></td>
 
-<table width="842" align="center">
-<tr>
-<td width="139">Training Objectives</td>
-<td width="700"><input name="Training Objective" type="text" size="100" maxlength="100" /></td>
-</tr>
-</table>
 <br /><br />
 
-<table width="847" align="center">
 <tr>
-<td width="141">Key Messages</td>
-<td width="700"><input name="Key Message" type="text" size="100" maxlength="100" /></td>
+<td>Key Messages</td>
+<td><input name="Key Message" type="text" size="90" maxlength="90" /></td>
 </tr>
 </table>
 <br /><br />
@@ -131,8 +129,7 @@
 <br />
 <center>
 <form action="Menu.php" method="post">
-			<input name="Save" type="submit" value="Save" />
-			<input  type="submit" name="Home"value="HOME"/>
+			<input name="Save" type="submit" value="SAVE" />
 </form>
 </center>
 </fieldset>

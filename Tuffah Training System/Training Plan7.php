@@ -9,7 +9,8 @@
 <body id="body-color" bgcolor="#9999FF">
 <fieldset style="border:groove">
 <img src="tuffah1.jpg" width="1288" height="337" />
-<h1 align="center">Training Plan 7</h1>
+<center><font size="20" color="#993333">TUFFAH TRAINING SYSTEM</font></center>
+<h2 align="center"><font color="#993333">FORM 7</font></h2>
 <div id="Container">
 <div id="Navbar"></div>
 <nav>
@@ -30,105 +31,83 @@
 <br />
 <br />
 <table>
-<tr></tr>
-<td align="center">objective(s) :</td>
-<td width="804"><br />
-<b>(a)</b>
-			<input name="objective" type="text" size="100" maxlength="100" />
-<br />
-<b>(b)</b>
-			<input name="objective" type="text" size="100" maxlength="100" />
-<br />
-<b>(c)</b>
-			<input name="objective" type="text" size="100" maxlength="100" />
-<br />
-</td>
-
-<tr></tr>
-<td align="center">Result(s) desired :</td>
-<td width="804">
-<br />
-<b>1.</b>
-			<input name="Result" type="text" size="100" maxlength="100" />
-<br />
-<b>2.</b>
-			<input name="Result" type="text" size="100" maxlength="100" />
-<br />
-<b>3.</b>
-			<input name="Result" type="text" size="100" maxlength="100" />
-<br />
-
-<tr></tr>
-<td align="center">Time :</td>
-<td width="804">
-<br />
-			<input name="Time" type="text" size="100" maxlength="100" />
-<br />
-
-</td>
-
-<tr></tr>
-<td align="center">Team involvement :</td>
-<td width="804">
-<br />
-			<input name="Team involvement" type="text" size="100" maxlength="100" />
-<br />
-</td>
-
-<tr></tr>
-<td align="center">Requirements :</td>
-<td width="804">
-<br />
-			<input name="Requirements" type="text" size="100" maxlength="100" height="100" />
-<br />
-</td>
-
-<tr></tr>
-<td align="center">Flow of the Training: :</td>
-<td width="804"><br />
-<b>(a)</b>
-			<input name="Flow of the Training" type="text" size="100" maxlength="100" />
-<br />
-<b>(b)</b>
-			<input name="Flow of the Training" type="text" size="100" maxlength="100" />
-<br />
-<b>(c)</b>
-			<input name="Flow of the Training" type="text" size="100" maxlength="100" />
-<br />
-</td>
-
-<tr></tr>
-<td align="center">Room Set-up and Format :</td>
-<td width="804"><br />
-<b>(a)</b>
-			<input name="Room Set-up and Format" type="text" size="100" maxlength="100" />
-<br />
-<b>(b)</b>
-			<input name="Room Set-up and Format" type="text" size="100" maxlength="100" />
-<br />
-<b>(c)</b>
-			<input name="Room Set-up and Format" type="text" size="100" maxlength="100" />
-<br />
-</td>
-
-<tr></tr>
-<td align="center">Detailed training explanation :</td>
-<td width="804"><br />
-<b>(a)</b>
-			<input name="Detailed training explanation" type="text" size="100" maxlength="100" />
-<br />
-<b>(b)</b>
-			<input name="Detailed training explanation" type="text" size="100" maxlength="100" />
-<br />
-<b>(c)</b>
-			<input name="Detailed training explanation" type="text" size="100" maxlength="100" />
-<br />
-</td>
+  <tr></tr>
+  <td align="center">objective(s) :</td>
+      <td width="804"><br />
+          <b>(a)</b>
+          <input name="objective" type="text" size="99" maxlength="99" />
+          <br />
+          <b>(b)</b>
+          <input name="objective" type="text" size="99" maxlength="99" />
+          <br />
+          <b>(c)</b>
+          <input name="objective" type="text" size="99" maxlength="99" />
+          <br />      </td>
+  <tr></tr>
+  <td align="center">Result(s) desired :</td>
+      <td width="804" align="center"><br />
+          <b>1.</b>
+          <input name="Result" type="text" size="100" maxlength="100" />
+          <br />
+          <b>2.</b>
+          <input name="Result" type="text" size="100" maxlength="100" />
+          <br />
+          <b>3.</b>
+          <input name="Result" type="text" size="100" maxlength="100" />
+          <br />      </td>
+  <tr></tr>
+  <td align="center">Time :</td>
+      <td width="804" align="center"><input name="Time" type="text" size="50" maxlength="50" />
+          <br />      </td>
+  <tr></tr>
+  <td align="center">Team involvement :</td>
+      <td width="804" align="center"><input name="Team involvement" type="text" size="101" maxlength="101" />
+          <br />      </td>
+  <tr></tr>
+  <td align="center">Requirements :</td>
+  <br />
+      <td width="804" align="center"><input name="Requirements" type="text" size="101" maxlength="101" height="100" />
+          <br />      </td>
+  <tr></tr>
+  <td align="center">Flow of the Training: :</td>
+      <td width="804" align="center"><br />
+          <b>(a)</b>
+          <input name="Flow of the Training2" type="text" size="100" maxlength="100" />
+          <br />
+          <b>(b)</b>
+          <input name="Flow of the Training" type="text" size="100" maxlength="100" />
+          <br />
+          <b>(c)</b>
+          <input name="Flow of the Training" type="text" size="100" maxlength="100" />
+          <br />      </td>
+  <tr></tr>
+  <td align="center">Room Set-up and Format :</td>
+      <td width="804" align="center"><br />
+          <b>(a)</b>
+          <input name="Room Set-up and Format" type="text" size="100" maxlength="100" />
+          <br />
+          <b>(b)</b>
+          <input name="Room Set-up and Format" type="text" size="100" maxlength="100" />
+          <br />
+          <b>(c)</b>
+          <input name="Room Set-up and Format" type="text" size="100" maxlength="100" />
+          <br />      </td>
+  <tr></tr>
+  <td align="center">Detailed training explanation :</td>
+      <td width="804" align="center"><br />
+          <b>(a)</b>
+          <input name="Detailed training explanation" type="text" size="100" maxlength="100" />
+          <br />
+          <b>(b)</b>
+          <input name="Detailed training explanation" type="text" size="100" maxlength="100" />
+          <br />
+          <b>(c)</b>
+          <input name="Detailed training explanation" type="text" size="100" maxlength="100" />
+          <br />      </td>
 </table>
 <center>
 <form action="Menu.php">
-<input name="Save" type="submit" value="Save" />
-<input name="Back" type="submit" value="HOME" />
+<input name="Save" type="submit" value="SAVE" />
 </form>
 </center>
 </fieldset>

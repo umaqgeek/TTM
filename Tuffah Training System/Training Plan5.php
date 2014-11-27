@@ -9,7 +9,8 @@
 <body id="body-color" bgcolor="#9999FF">
 <fieldset style="border:groove">
 <img src="tuffah1.jpg" width="1288" height="337" />
-<h1 align="center">Training Plan 5</h1>
+<center><font size="20" color="#993333">TUFFAH TRAINING SYSTEM</font></center>
+<h2 align="center"><font color="#993333">FORM 5</font></h2>
 <div id="Container">
 <div id="Navbar"></div>
 <nav>
@@ -94,8 +95,7 @@
 
 <center>
 <form action="Menu.php">
-<input name="Save" type="submit" value="Save" />
-<input name="Back" type="submit" value="HOME" />
+<input name="Save" type="submit" value="SAVE" />
 </form>
 </center>
 </fieldset>

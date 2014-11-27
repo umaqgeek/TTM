@@ -7,8 +7,10 @@
 </head>
 
 <body id="body-color" bgcolor="#9999FF">
+<fieldset>
 <div id="Container">
 <div id="Head"><img src="tuffah1.jpg" width="1292" height="255" /></div>
+<center><font size="20" color="#993333">TUFFAH TRAINING SYSTEM</font></center>
 <div id="Navbar"></div>
 <nav>
 <ul>
@@ -21,8 +23,7 @@
 <div id="Footer">
 </div>
 </div>
-
-
 </center>
+</fieldset>
 </body>
 </html>

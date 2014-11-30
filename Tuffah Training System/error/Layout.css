@@ -1,0 +1,33 @@
+body  {
+	margin:0px;
+	padding:0px;
+}
+
+#Container {
+	width:800px;
+	height:auto;
+	margin-left:200px;
+	margin-right:150px;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+#Header {
+	height:67px;
+	margin-bottom:21px;
+		
+}
+#Nav {
+	height:auto;
+	background-color:#CCCCCC;
+	margin-left:200px;
+	margin-right:150px;
+	margin-top:10px;
+	margin-bottom:10px;
+	display:inline;
+}
+#Content {
+	height:auto;
+}
+#Footer {
+	height:50px;
+}

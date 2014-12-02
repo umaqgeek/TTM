@@ -9,22 +9,40 @@
 
 <body bgcolor="#CC6666">
 <img src="tuffah1.jpg" width="1303" height="187" />
-	<div id="Container">
+<div id="Container">
 	<div id="Head">
   		<center>
   		<font size="20" color="#990000">TUFFAH TRAINING SYSTEM</font></center></div>
 	<div id="Navbar">
 		<nav>
 			<ul>
-				<li><a href="Admin.php">Home</a></li>
-    			<li><a href="SubjectAdmin.php">Subject</a></li>
-				<li><a href="InstructorAdmin.php">Instructor</a></li>
-				<li><a href="TrainingAdmin.php">Training</a></li>
-				<li><a href="logout.php">Logout</a></li>			
+				<li><a href="Users.php">Home</a></li>
+    			<li><a href="SubjectUser.php">Subject</a></li>
+				<li><a href="InstructorUser.php">Instructor</a></li>
+				<li><a href="TrainingUser.php">Training</a></li>
+				<li><a href="logout.php">Logout</a></li>
 			</ul>
 	      </nav>
 	</div>	  
 	<div id="Content"></div>
 </div>
+<br />
+<br />
+<form action="SubjectUser.php" method="post">
+<table align="center">
+<tr>
+<td> Subject Name:</td>
+<td><input name="namesubject" type="text" size="50" maxlength="200" /></td>
+</tr><br /><br />
+
+<tr>
+<td>Code Subject:</td>
+<td><input name="codesubject" type="text" size="20" maxlength="200" /></td>
+</tr>
+</table>
+<br />
+<br />
+<center><input type="submit" value="Submit"></center>
+</form>
 </body>
 </html>

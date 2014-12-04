@@ -26,5 +26,13 @@
 	</div>	  
 	<div id="Content"></div>
 </div>
+<br />
+<br />
+<br />
+<div align="center">
+		<a href="AddTrainingAdmin.php"><input name="AddTraining" type="button" value="Add Training" /></a>
+<br />
+		<input name="DeleteTraining" type="button" value="Delete Training" />
+</div>
 </body>
 </html>

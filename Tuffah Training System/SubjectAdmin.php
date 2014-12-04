@@ -71,6 +71,11 @@ while ($rows = mysql_fetch_array($retval,MYSQL_ASSOC))
 	}
 }
 ?>
+<div align="center">
+		<a href="AddSubjectAdmin.php"><input name="AddSubject" type="button" value="Add Subject" /></a>
+<br />
+		<input name="DeleteSubject" type="button" value="Delete Subject" />
+</div>
 </center>
 </body>
 </html>

@@ -1,5 +1,3 @@
-
-</center>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -41,6 +39,7 @@
 <br />
 <br />
 <br />
+
 <center>
 <?php
 	$dbhost = "localhost";
@@ -74,6 +73,11 @@ while ($rows = mysql_fetch_array($retval,MYSQL_ASSOC))
 	}
 }
 ?>
+<div align="center">
+		<a href="AddTrainingAdmin.php"><input name="AddTraining" type="button" value="Add Training" /></a>
+<br />
+		<input name="DeleteTraining" type="button" value="Delete Training" />
+</div>
 </center>
 </body>
 </html>

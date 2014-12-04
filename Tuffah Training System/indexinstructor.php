@@ -26,5 +26,14 @@
 	</div>	  
 	<div id="Content"></div>
 </div>
+<br />
+<br />
+<br />
+
+<div align="center">
+		<a href="AddInstructorAdmin.php"><input name="AddInstructor" type="button" value="Add Instructor" /></a>
+<br />
+		<input name="DeleteInstructor" type="button" value="Delete Instructor" />
+</div>
 </body>
 </html>

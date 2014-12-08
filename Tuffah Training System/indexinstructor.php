@@ -33,7 +33,9 @@
 <div align="center">
 		<a href="AddInstructorAdmin.php"><input name="AddInstructor" type="button" value="Add Instructor" /></a>
 <br />
-		<input name="DeleteInstructor" type="button" value="Delete Instructor" />
+		<a href="DeleteInstructorAdmin.php"><input name="DeleteInstructor" type="button" value="Delete Instructor" /></a>
+<br />
+		<a href="UpdateInstructorAdmin.php"><input name="UpdateInstructor" type="button" value="Update Instructor" /></a
 </div>
 </body>
 </html>

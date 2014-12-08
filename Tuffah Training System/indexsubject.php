@@ -33,7 +33,9 @@
 <div align="center">
 		<a href="AddSubjectAdmin.php"><input name="AddSubject" type="button" value="Add Subject" /></a>
 <br />
-		<input name="DeleteSubject" type="button" value="Delete Subject" />
+		<a href="DeleteSubjectAdmin.php"><input name="DeleteSubject" type="button" value="Delete Subject" /></a>
+<br />
+		<a href="UpdateSubjectAdmin.php"><input name="UpdateSubject" type="button" value="Update Subject" /></a>
 </div>
 </body>
 </html>

@@ -76,7 +76,9 @@ while ($rows = mysql_fetch_array($retval,MYSQL_ASSOC))
 <div align="center">
 		<a href="AddTrainingAdmin.php"><input name="AddTraining" type="button" value="Add Training" /></a>
 <br />
-		<input name="DeleteTraining" type="button" value="Delete Training" />
+		<a href="DeleteTrainingAdmin.php"><input name="DeleteTraining" type="button" value="Delete Training" /></a>
+<br />
+		<a href="UpdateTrainingAdmin.php"><input name="UpdateTraining" type="button" value="Update Training" /></a>
 </div>
 </center>
 </body>

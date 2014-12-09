@@ -15,10 +15,10 @@
 	<div id="Navbar">
 		<nav>
 			<ul>
-				<li><a href="Admin.php">Home</a></li>
-    			<li><a href="SubjectAdmin.php">Subject</a></li>
-				<li><a href="InstructorAdmin.php">Instructor</a></li>
-				<li><a href="TrainingAdmin.php">Training</a></li>
+				<li><a href="Users.php">Home</a></li>
+    			<li><a href="SubjectUser.php">Subject</a></li>
+				<li><a href="InstructorUser.php">Instructor</a></li>
+				<li><a href="TrainingUser.php">Training</a></li>
 				<li><a href="logout.php">Logout</a></li>
 			</ul>
 	      </nav>
@@ -58,7 +58,7 @@ else{
 }
 ?>
 <br /><br />
-<a href="TrainingAdmin.php"><input type="submit" value="Back"/></a>
+<a href="TrainingUser.php"><input type="submit" value="Back"/></a>
 
 </center></center>
 </body>

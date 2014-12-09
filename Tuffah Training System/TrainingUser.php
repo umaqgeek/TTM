@@ -28,7 +28,52 @@
 </div>
 <br />
 <br />
+<br />
+<br />
+<center>
 <form action="TrainingUser.php" method="post">
+			<b>ID Trainer</b><input name="IDtraining" type="text" size="20" maxlength="200" />
+			<input type="submit" value="Search">
+<br />
+<br />
+<center>
+<?php
+	$dbhost = "localhost";
+	$dbuser="root";
+	$dbpass = "";    
+	$conn = mysql_connect($dbhost, $dbuser, $dbpass);
+
+if(! $conn)
+
+{
+	die('could not connect: '. mysql_error());
+}
+if (isset($_POST['IDtraining'])){
+$trainingname = $_POST['IDtraining'];
+$sql = 'SELECT trainingname, startdate, enddate, place, totalstudent FROM training WHERE IDtraining ="'.$trainingname.'"';
+
+mysql_select_db('training_test');
+$retval = mysql_query($sql, $conn);
+if(! $retval)
+{
+	die('could not get data: '. mysql_error());
+}
+while ($rows = mysql_fetch_array($retval,MYSQL_ASSOC))
+{
+	echo "<b>Training Name : {$rows['trainingname']} </b><br><br>".
+	     "<b>Start Date : {$rows['startdate']} </b><br><br>".
+		 "<b>End Date : {$rows['enddate']} </b><br><br>".
+		 "<b>Place : {$rows['place']} </b><br><br>".
+		 "<b>Total Student : {$rows['totalstudent']} </b><br><br>".
+	mysql_close($conn);
+	}
+}
+?>
+</center>
+</form>
+</center>
+
+<form action="ConfirmAddTrainingUser.php" method="post">
 <table align="center">
 <tr>
 <td>Trainer Name:</td>
@@ -62,38 +107,9 @@
 </table>
 <br />
 <br />
-<center><input type="submit" value="Submit"></center>
-</form>
 <center>
-<?php
-	$dbhost = "localhost";
-	$dbuser="root";
-	$dbpass = "";
-	$dbname = "training_test";
-	mysql_connect($dbhost, $dbuser, $dbpass);
-	mysql_select_db($dbname);
-	
-
-$trainername=$_POST['trainername'];
-$startdate=$_POST['startdate'];
-$enddate=$_POST['enddate'];
-$place=$_POST['place'];
-$totalstudent=$_POST['totalstudent'];
-$submit = $_POST['submit'];
-
-if($submit)
-{
-	if($trainername && $startdate && $enddate && $place && $totalstudent )
-	{
-		$insert=mysql_query("INSERT INTO training (trainername, startdate, enddate, place, totalstudent)VALUES ('$trainername','$startdate','$enddate','$place','$totalstudent')");
-		echo "You have a new data..";
-	}
-	else
-	{
-		echo "Please fill out the fields";
-	}
-}
-?>
+<input type="submit" value="Submit">
 </center>
+</form>
 </body>
 </html>

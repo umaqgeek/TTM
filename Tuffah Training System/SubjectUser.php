@@ -28,21 +28,49 @@
 </div>
 <br />
 <br />
-<form action="SubjectUser.php" method="post">
-<table align="center">
-<tr>
-<td> Subject Name:</td>
-<td><input name="namesubject" type="text" size="50" maxlength="200" /></td>
-</tr><br /><br />
-
-<tr>
-<td>Code Subject:</td>
-<td><input name="codesubject" type="text" size="20" maxlength="200" /></td>
-</tr>
-</table>
 <br />
 <br />
-<center><input type="submit" value="Submit"></center>
+<center>
+<form action="SubjectAdmin.php" method="post">
+			<b>ID Subject</b><input name="IDsubject" type="text" size="20" maxlength="200" />
+			<input type="submit" value="Search">
 </form>
+</center>
+<br />
+<br />
+<br />
+<br />
+<center>
+<?php
+	$dbhost = "localhost";
+	$dbuser="root";
+	$dbpass = "";    
+	$conn = mysql_connect($dbhost, $dbuser, $dbpass);
+
+if(! $conn)
+
+{
+	die('could not connect: '. mysql_error());
+}
+if (isset($_POST['IDsubject'])){
+$namesubject = $_POST['IDsubject'];
+$sql = 'SELECT IDsubject, namesubject, codesubject FROM subject WHERE IDsubject ="'.$namesubject.'"';
+
+mysql_select_db('training_test');
+$retval = mysql_query($sql, $conn);
+if(! $retval)
+{
+	die('could not get data: '. mysql_error());
+}
+while ($rows = mysql_fetch_array($retval,MYSQL_ASSOC))
+{
+	echo "<b>ID Subject : {$rows['IDsubject']} </b><br><br>".
+	     "<b>Name Subject : {$rows['namesubject']} </b><br><br>".
+		 "<b>Code Subject : {$rows['codesubject']} </b><br><br>".
+	mysql_close($conn);
+	}
+}
+?>
+</center>
 </body>
 </html>

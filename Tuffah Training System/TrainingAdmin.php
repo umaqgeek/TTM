@@ -30,55 +30,10 @@
 <br />
 <br />
 <center>
-<form action="TrainingAdmin.php" method="post">
-			<b>ID Trainer</b><input name="IDtraining" type="text" size="20" maxlength="200" />
-			<input type="submit" value="Search">
-</form>
-</center>
-<br />
-<br />
-<br />
-<br />
-
-<center>
-<?php
-	$dbhost = "localhost";
-	$dbuser="root";
-	$dbpass = "";    
-	$conn = mysql_connect($dbhost, $dbuser, $dbpass);
-
-if(! $conn)
-
-{
-	die('could not connect: '. mysql_error());
-}
-if (isset($_POST['IDtraining'])){
-$trainingname = $_POST['IDtraining'];
-$sql = 'SELECT trainingname, startdate, enddate, place, totalstudent FROM training WHERE IDtraining ="'.$trainingname.'"';
-
-mysql_select_db('training_test');
-$retval = mysql_query($sql, $conn);
-if(! $retval)
-{
-	die('could not get data: '. mysql_error());
-}
-while ($rows = mysql_fetch_array($retval,MYSQL_ASSOC))
-{
-	echo "<b>Training Name : {$rows['trainingname']} </b><br><br>".
-	     "<b>Start Date : {$rows['startdate']} </b><br><br>".
-		 "<b>End Date : {$rows['enddate']} </b><br><br>".
-		 "<b>Place : {$rows['place']} </b><br><br>".
-		 "<b>Total Student : {$rows['totalstudent']} </b><br><br>".
-	mysql_close($conn);
-	}
-}
-?>
-<div align="center">
+  <div align="center">
 		<a href="AddTrainingAdmin.php"><input name="AddTraining" type="button" value="Add Training" /></a>
 <br />
-		<a href="DeleteTrainingAdmin.php"><input name="DeleteTraining" type="button" value="Delete Training" /></a>
-<br />
-		<a href="UpdateTrainingAdmin.php"><input name="UpdateTraining" type="button" value="Update Training" /></a>
+		<a href="DeleteTrainingAdmin.php"><input name="Update/DeleteTraining" type="button" value="Update/Delete Training" /></a>
 </div>
 </center>
 </body>

@@ -11,30 +11,30 @@
 <img src="tuffah1.jpg" width="1303" height="187" />
 <div id="Container">
 	<div id="Head">
-  		<center>
-  		<font size="20" color="#990000">TUFFAH TRAINING SYSTEM</font></center></div>
+  		<center><font size="20" color="#990000">TUFFAH TRAINING SYSTEM</font></center></div>
 	<div id="Navbar">
 		<nav>
 			<ul>
 				<li><a href="Admin.php">Home</a></li>
-    			<li><a href="Subject Admin.php">Subject</a></li>
-				<li><a href="Instructor Admin.php">Instructor</a></li>
-				<li><a href="Training Admin.php">Training</a></li>
+    			<li><a href="SubjectAdmin.php">Subject</a></li>
+				<li><a href="InstructorAdmin.php">Instructor</a></li>
+				<li><a href="TrainingAdmin.php">Training</a></li>
 				<li><a href="logout.php">Logout</a></li>
 			</ul>
 	      </nav>
 	</div>	  
 	<div id="Content"></div>
+	<div id="Footer"></div>
 </div>
 <br />
 <br />
 <br />
-<div align="center">
+<center>
+  <div align="center">
 		<a href="AddTrainingAdmin.php"><input name="AddTraining" type="button" value="Add Training" /></a>
 <br />
-		<a href="DeleteTrainingAdmin.php"><input name="DeleteTraining" type="button" value="Delete Training" /></a>
-<br />
-		<a href="UpdateTrainingAdmin.php"><input name="UpdateTraining" type="button" value="Update Training" /></a>
+		<a href="DeleteTrainingAdmin.php"><input name="Update/DeleteTraining" type="button" value="Update/Delete Training" /></a>
 </div>
+</center>
 </body>
 </html>

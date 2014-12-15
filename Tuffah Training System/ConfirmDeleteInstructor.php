@@ -7,7 +7,7 @@ mysql_connect($dbhost,$dbuser,$dbpass);
 mysql_select_db($db);
 
 	$id = $_GET['Update'];
-	mysql_query("DELETE FROM training WHERE IDtraining= $id");
+	mysql_query("DELETE FROM instructor WHERE IDinstructor= $id");
 	echo "The Staff Has Been Deleted";
-	Header("Location:DeleteTrainingAdmin.php");
+	Header("Location:DeleteInstructorAdmin.php");
 ?>

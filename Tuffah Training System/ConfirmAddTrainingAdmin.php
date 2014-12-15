@@ -60,6 +60,7 @@ else{
 <br /><br />
 <a href="TrainingAdmin.php"><input type="submit" value="Back"/></a>
 
-</center></center>
+</center>
+</center>
 </body>
 </html>

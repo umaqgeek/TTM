@@ -29,12 +29,10 @@
 <br />
 <br />
 <br />
-<center>
   <div align="center">
 		<a href="AddTrainingAdmin.php"><input name="AddTraining" type="button" value="Add Training" /></a>
 <br />
 		<a href="DeleteTrainingAdmin.php"><input name="Update/DeleteTraining" type="button" value="Update/Delete Training" /></a>
 </div>
-</center>
 </body>
 </html>

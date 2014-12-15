@@ -31,28 +31,43 @@
 $dbuser="root";
 $dbpass = "";
 $dbhost = "localhost";
-$conn = mysql_connect($dbhost,$dbuser,$dbpass);
+$db = "training_test";
+mysql_connect($dbhost,$dbuser,$dbpass);
+mysql_select_db($db);
 
-if(! $conn)
-{
-	die('could not connect: '. mysql_error()); 
-}
-$sql = ("UPDATE instructor SET nameinstructor='Jamal Bin Husin', noinstructor='091488394' WHERE nameinstructor='Jamal Bin Husin'");
 
-mysql_select_db('training_test');
-$retval = mysql_query($sql, $conn);
-if($retval)
+if(isset($_GET['Update']))
 {
-	echo "<b>SUCCESS!</b>";
-	
+	$id = $_GET['Update'];
+	$sql = mysql_query("SELECT * FROM instructor WHERE IDinstructor= $id");
+	$row = mysql_fetch_array($sql);
 }
-else{
-	die('could not get data: '. mysql_error());;
+
+?>
+</center>
+<center>
+<h1>Update</h1>
+<form action="UpdateInstructorAdmin.php" method="POST">
+<table border="0" width="400">
+<tr><td><b>Name Instructor:</b></td><td> <input size="50" type="text" name="nameinstructor" value="<?php echo $row['nameinstructor'];?>"/></td></tr>
+<tr><td><b>Instructor IC:</b></td><td> <input size="50" type="text" name="icinstructor" value="<?php echo $row['icinstructor'];?>"/></td></tr>
+<tr><td><b>Instructor No.Phone:</b></td><td> <input size="50" type="text" name="noinstructor" value="<?php echo $row['noinstructor'];?>"/></td></tr>
+<tr><td></td><td> <input  type="hidden" name="ID" value="<?php echo $id;?>"/></td></tr>
+</table><br /><tr><td colspan="2">
+<center>
+<input type="submit" name="submit" value="Update"/>
+</center>
+</td>
+</tr>
+</form>
+</center>
+<?php
+if(isset($_POST['submit']))
+{
+
+	$sql = "UPDATE instructor SET nameinstructor='$_POST[nameinstructor]',icinstructor='$_POST[icinstructor]',noinstructor='$_POST[noinstructor]' WHERE IDinstructor= $_POST[ID]";
+	$res = mysql_query($sql) or die ("could not update".mysql_error());
+	echo "Staff Has Been Modified";
+	Header("Location:DeleteInstructorAdmin.php");
 }
 ?>
-<br /><br />
-<a href="InstructorAdmin.php"><input type="submit" value="Back"/></a>
-
-</center></center>
-</body>
-</html>

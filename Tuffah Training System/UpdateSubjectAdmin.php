@@ -31,29 +31,42 @@
 $dbuser="root";
 $dbpass = "";
 $dbhost = "localhost";
-$conn = mysql_connect($dbhost,$dbuser,$dbpass);
+$db = "training_test";
+mysql_connect($dbhost,$dbuser,$dbpass);
+mysql_select_db($db);
 
-if(! $conn)
-{
-	die('could not connect: '. mysql_error()); 
-}
-$sql = ("UPDATE subject SET codesubject='Java', namesubject='Java were easy' WHERE codesubject='Java'");
 
-mysql_select_db('training_test');
-$retval = mysql_query($sql, $conn);
-if($retval)
+if(isset($_GET['Update']))
 {
-	echo "<b>SUCCESS!</b>";
-	
+	$id = $_GET['Update'];
+	$sql = mysql_query("SELECT * FROM subject WHERE IDsubject= $id");
+	$row = mysql_fetch_array($sql);
 }
-else{
-	die('could not get data: '. mysql_error());;
-}
+
 ?>
 </center>
-<br /><br />
 <center>
-<a href="SubjectAdmin.php"><input type="submit" value="Back"/></a>
+<h1>Update</h1>
+<form action="UpdateSubjectAdmin.php" method="POST">
+<table border="0" width="400">
+<tr><td><b>Name Subject:</b></td><td> <input size="50" type="text" name="namesubject" value="<?php echo $row['namesubject'];?>"/></td></tr>
+<tr><td><b>Code Subject:</b></td><td> <input size="50" type="text" name="codesubject" value="<?php echo $row['codesubject'];?>"/></td></tr>
+<tr><td></td><td> <input  type="hidden" name="ID" value="<?php echo $id;?>"/></td></tr>
+</table><br /><tr><td colspan="2">
+<center>
+<input type="submit" name="submit" value="Update"/>
 </center>
-</body>
-</html>
+</td>
+</tr>
+</form>
+</center>
+<?php
+if(isset($_POST['submit']))
+{
+
+	$sql = "UPDATE subject SET namesubject='$_POST[namesubject]',codesubject='$_POST[codesubject]' WHERE IDsubject= $_POST[ID]";
+	$res = mysql_query($sql) or die ("could not update".mysql_error());
+	echo "Staff Has Been Modified";
+	Header("Location:DeleteSubjectAdmin.php");
+}
+?>

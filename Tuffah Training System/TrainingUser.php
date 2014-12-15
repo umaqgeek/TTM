@@ -36,6 +36,9 @@
 			<input type="submit" value="Search">
 <br />
 <br />
+</form>
+</center>
+
 <center>
 <?php
 	$dbhost = "localhost";
@@ -71,45 +74,22 @@ while ($rows = mysql_fetch_array($retval,MYSQL_ASSOC))
 ?>
 </center>
 </form>
-</center>
-
-<form action="ConfirmAddTrainingUser.php" method="post">
-<table align="center">
-<tr>
-<td>Trainer Name:</td>
-<td><input name="trainername" type="text" size="50" maxlength="200" /></td>
-</tr><br /><br />
-
-<tr>
-<td>Start Date:</td>
-<td><input name="startdate" type="text" size="20" maxlength="200" /></td>
-</tr>
-<br />
-<br />
-
-<tr>
-<td>End Date:</td>
-<td><input name="enddate" type="text" size="15" maxlength="200" /></td>
-</tr>
-<br />
-<br />
-
-<tr>
-	<td>Place:</td>
-	<td><input name="place" type="text" size="50" maxlength="200" /></td>
-</tr>
-<br />
-<br />
-
-<tr>
-	<td>Total Student:</td><td><input name="totalstudent" type="text" size="10" maxlength="200" /></td>
-</tr>
-</table>
-<br />
-<br />
 <center>
-<input type="submit" value="Submit">
-</center>
+<h1>Add Training</h1>
+<form action="ConfirmAddTrainingUser.php" method="POST">
+<table border="0" width="400">
+<tr><td><b>Training Name:</b></td><td> <input size="50" type="text" name="trainingname"/></td></tr>
+<tr><td><b>Start Date :</b></td><td> <input size="50" type="date" name="startdate"/></td></tr>
+<tr><td><b>End Date:</b></td><td> <input size="50" type="date" name="enddate"/></td></tr>
+<tr><td><b>Place:</b></td><td> <input size="50" type="text" name="place"/></td></tr>
+<tr><td><b>Total Student:</b> </td><td><input size="50" type="text" name="totalstudent"/></td></tr>
+</table><br />
+<tr>
+<td colspan="2">
+<input type="submit" value="Add"/>
+</td>
+</tr>
 </form>
+</center>
 </body>
 </html>

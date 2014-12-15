@@ -30,55 +30,10 @@
 <br />
 <br />
 <br />
-<center>
-<form action="InstructorAdmin.php" method="post">
-			<b>ID Instructor</b><input name="IDinstructor" type="text" size="20" maxlength="200" />
-			<input type="submit" value="Search"/>
-</form>
-</center>
-<br />
-<br />
-<br />
-<br />
-<center>
-<?php
-	$dbhost = "localhost";
-	$dbuser="root";
-	$dbpass = "";    
-	$conn = mysql_connect($dbhost, $dbuser, $dbpass);
-
-if(! $conn)
-
-{
-	die('could not connect: '. mysql_error());
-}
-if (isset($_POST['IDinstructor'])){
-$nameinstructor = $_POST['IDinstructor'];
-$sql = 'SELECT IDinstructor, nameinstructor, icinstructor, noinstructor FROM instructor WHERE IDinstructor ="'.$nameinstructor.'"';
-
-mysql_select_db('training_test');
-$retval = mysql_query($sql, $conn);
-if(! $retval)
-{
-	die('could not get data: '. mysql_error());
-}
-while ($rows = mysql_fetch_array($retval,MYSQL_ASSOC))
-{
-	echo "<b>ID Instructor : {$rows['IDinstructor']} </b><br><br>".
-	     "<b>Name Instructor : {$rows['nameinstructor']} </b><br><br>".
-		 "<b>Ic Instructor : {$rows['icinstructor']} </b><br><br>".
-		 "<b>No Instructor : {$rows['noinstructor']} </b><br><br>".
-		 
-	mysql_close($conn);
-	}
-}
-?>
 <div align="center">
 		<a href="AddInstructorAdmin.php"><input name="AddInstructor" type="button" value="Add Instructor" /></a>
 <br />
-		<a href="DeleteInstructorAdmin.php"><input name="DeleteInstructor" type="button" value="Delete Instructor" /></a>
-<br />
-		<a href="UpdateInstructorAdmin.php"><input name="UpdateInstructor" type="button" value="Update Instructor" /></a>
+		<a href="DeleteInstructorAdmin.php"><input name="Update/DeleteInstructor" type="button" value="Update/Delete Instructor" /></a>
 </div>
 </center>
 </body>

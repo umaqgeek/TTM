@@ -27,6 +27,7 @@
 	<div id="Footer"></div>
 </div>
 <center>
+<h1>Instructor Name</h1>
 <?php
 $dbuser="root";
 $dbpass = "";
@@ -35,24 +36,23 @@ $conn = mysql_connect($dbhost,$dbuser,$dbpass);
 
 if(! $conn)
 {
-	die('could not connect: '. mysql_error()); 
+	die('could not connect: '. mysql_error());
 }
-$sql = ("DELETE FROM instructor
-WHERE nameinstructor='sufi'");
+$sql = "SELECT * FROM instructor";
 
 mysql_select_db('training_test');
-$retval = mysql_query($sql, $conn);
-if($retval)
+$retval = mysql_query($sql,$conn);
+if(! $retval)
 {
-	echo "<b>SUCCESS!</b>";
-	
+	die('could not get data: '. mysql_error());
 }
-else{
-	die('could not get data: '. mysql_error());;
+$i=1;
+while ($row = mysql_fetch_array($retval))
+{
+echo "$i. $row[nameinstructor] <a href='UpdateInstructorAdmin.php? Update=$row[IDinstructor]'>Update</a><span>   </span><span>   </span><a href='ConfirmDeleteSubject.php?Update=$row[IDinstructor]'>Delete</a><br><br>";
+	$i++;
 }
 ?>
-<br /><br />
-<a href="InstructorAdmin.php"><input type="submit" value="Back"/></a>
 </center>
 </body>
 </html>

@@ -31,8 +31,8 @@
 <form action="ConfirmAddTrainingAdmin.php" method="POST">
 <table border="0" width="400">
 <tr><td><b>Training Name:</b></td><td> <input size="50" type="text" name="trainingname"/></td></tr>
-<tr><td><b>Start Date :</b></td><td> <input size="50" type="text" name="startdate"/></td></tr>
-<tr><td><b>End Date:</b></td><td> <input size="50" type="text" name="enddate"/></td></tr>
+<tr><td><b>Start Date :</b></td><td> <input size="50" type="date" name="startdate"/></td></tr>
+<tr><td><b>End Date:</b></td><td> <input size="50" type="date" name="enddate"/></td></tr>
 <tr><td><b>Place:</b></td><td> <input size="50" type="text" name="place"/></td></tr>
 <tr><td><b>Total Student:</b> </td><td><input size="50" type="text" name="totalstudent"/></td></tr>
 </table><br />

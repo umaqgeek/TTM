@@ -11,8 +11,7 @@
 <img src="tuffah1.jpg" width="1303" height="187" />
 <div id="Container">
 	<div id="Head">
-  		<center>
-  		<font size="20" color="#990000">TUFFAH TRAINING SYSTEM</font></center></div>
+  		<center><font size="20" color="#990000">TUFFAH TRAINING SYSTEM</font></center></div>
 	<div id="Navbar">
 		<nav>
 			<ul>
@@ -25,60 +24,15 @@
 	      </nav>
 	</div>	  
 	<div id="Content"></div>
+	<div id="Footer"></div>
 </div>
 <br />
 <br />
 <br />
-<br />
-<center>
-<form action="SubjectAdmin.php" method="post">
-			<b>ID Subject</b><input name="IDsubject" type="text" size="20" maxlength="200" />
-			<input type="submit" value="Search">
-</form>
-</center>
-<br />
-<br />
-<br />
-<br />
-<center>
-<?php
-	$dbhost = "localhost";
-	$dbuser="root";
-	$dbpass = "";    
-	$conn = mysql_connect($dbhost, $dbuser, $dbpass);
-
-if(! $conn)
-
-{
-	die('could not connect: '. mysql_error());
-}
-if (isset($_POST['IDsubject'])){
-$namesubject = $_POST['IDsubject'];
-$sql = 'SELECT IDsubject, namesubject, codesubject FROM subject WHERE IDsubject ="'.$namesubject.'"';
-
-mysql_select_db('training_test');
-$retval = mysql_query($sql, $conn);
-if(! $retval)
-{
-	die('could not get data: '. mysql_error());
-}
-while ($rows = mysql_fetch_array($retval,MYSQL_ASSOC))
-{
-	echo "<b>ID Subject : {$rows['IDsubject']} </b><br><br>".
-	     "<b>Name Subject : {$rows['namesubject']} </b><br><br>".
-		 "<b>Code Subject : {$rows['codesubject']} </b><br><br>".
-	mysql_close($conn);
-	}
-}
-?>
-<div align="center">
+  <div align="center">
 		<a href="AddSubjectAdmin.php"><input name="AddSubject" type="button" value="Add Subject" /></a>
 <br />
-		<a href="DeleteSubjectAdmin.php"><input name="DeleteSubject" type="button" value="Delete Subject" /></a>
-<br />
-		<a href="UpdateSubjectAdmin.php"><input name="UpdateSubject" type="button" value="Update Subject" /></a>
+		<a href="DeleteSubjectAdmin.php"><input name="Update/DeleteSubject" type="button" value="Update/Delete Subject" /></a>
 </div>
-</center>
 </body>
 </html>
-

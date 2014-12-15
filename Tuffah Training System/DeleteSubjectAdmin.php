@@ -3,7 +3,7 @@
 <head>
 <link rel="stylesheet" type="text/css" href="Menu.css" />
 <link rel="stylesheet" type="text/css" href="Layout.css" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Untitled Document</title>
 </head>
 
@@ -21,12 +21,16 @@
 				<li><a href="TrainingAdmin.php">Training</a></li>
 				<li><a href="logout.php">Logout</a></li>
 			</ul>
-      </nav>
+	      </nav>
 	</div>	  
 	<div id="Content"></div>
 	<div id="Footer"></div>
 </div>
+<br />
+<br />
+<br />
 <center>
+<h1>Subject Name</h1>
 <?php
 $dbuser="root";
 $dbpass = "";
@@ -35,23 +39,23 @@ $conn = mysql_connect($dbhost,$dbuser,$dbpass);
 
 if(! $conn)
 {
-	die('could not connect: '. mysql_error()); 
+	die('could not connect: '. mysql_error());
 }
-$sql = ("DELETE FROM subject WHERE codesubject='Visual Basic'");
+$sql = "SELECT * FROM subject";
 
 mysql_select_db('training_test');
-$retval = mysql_query($sql, $conn);
-if($retval)
+$retval = mysql_query($sql,$conn);
+if(! $retval)
 {
-	echo "<b>SUCCESS!</b>";
-	
+	die('could not get data: '. mysql_error());
 }
-else{
-	die('could not get data: '. mysql_error());;
+$i=1;
+while ($row = mysql_fetch_array($retval))
+{
+	echo "$i. $row[namesubject] <a href='UpdateSubjectAdmin.php? Update=$row[IDsubject]'>Update</a><span>   </span><span>   </span><a href='ConfirmDeleteSubject.php?Update=$row[IDsubject]'>Delete</a><br><br>";
+	$i++;
 }
 ?>
-<br /><br />
-<a href="SubjectAdmin.php"><input type="submit" value="Back"/></a>
 </center>
 </body>
-</html>
+</div>

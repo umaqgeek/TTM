@@ -42,15 +42,13 @@ if(isset($_GET['Update']))
 	$sql = mysql_query("SELECT * FROM subject WHERE IDsubject= $id");
 	$row = mysql_fetch_array($sql);
 }
-
 ?>
-</center>
 <center>
 <h1>Update</h1>
 <form action="UpdateSubjectAdmin.php" method="POST">
-<table border="0" width="400">
-<tr><td><b>Name Subject:</b></td><td> <input size="50" type="text" name="namesubject" value="<?php echo $row['namesubject'];?>"/></td></tr>
-<tr><td><b>Code Subject:</b></td><td> <input size="50" type="text" name="codesubject" value="<?php echo $row['codesubject'];?>"/></td></tr>
+<table border="0" width="531">
+<tr><td><b>Subject Name:</b></td><td> <input size="50" type="text" name="namesubject" value="<?php echo $row['namesubject'];?>"/></td></tr>
+<tr><td><b>Subject Code:</b></td><td> <input size="50" type="text" name="codesubject" value="<?php echo $row['codesubject'];?>"/></td></tr>
 <tr><td></td><td> <input  type="hidden" name="ID" value="<?php echo $id;?>"/></td></tr>
 </table><br /><tr><td colspan="2">
 <center>
@@ -66,7 +64,7 @@ if(isset($_POST['submit']))
 
 	$sql = "UPDATE subject SET namesubject='$_POST[namesubject]',codesubject='$_POST[codesubject]' WHERE IDsubject= $_POST[ID]";
 	$res = mysql_query($sql) or die ("could not update".mysql_error());
-	echo "Staff Has Been Modified";
-	Header("Location:DeleteSubjectAdmin.php");
+	Header("Location:SubjectAdmin.php");
 }
 ?>
+</center>

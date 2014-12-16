@@ -42,16 +42,14 @@ if(isset($_GET['Update']))
 	$sql = mysql_query("SELECT * FROM instructor WHERE IDinstructor= $id");
 	$row = mysql_fetch_array($sql);
 }
-
 ?>
-</center>
 <center>
 <h1>Update</h1>
 <form action="UpdateInstructorAdmin.php" method="POST">
-<table border="0" width="400">
-<tr><td><b>Name Instructor:</b></td><td> <input size="50" type="text" name="nameinstructor" value="<?php echo $row['nameinstructor'];?>"/></td></tr>
+<table border="0" width="531">
+<tr><td><b>Instructor Name:</b></td><td> <input size="50" type="text" name="nameinstructor" value="<?php echo $row['nameinstructor'];?>"/></td></tr>
 <tr><td><b>Instructor IC:</b></td><td> <input size="50" type="text" name="icinstructor" value="<?php echo $row['icinstructor'];?>"/></td></tr>
-<tr><td><b>Instructor No.Phone:</b></td><td> <input size="50" type="text" name="noinstructor" value="<?php echo $row['noinstructor'];?>"/></td></tr>
+<tr><td><b>Instructor No:</b></td><td> <input size="50" type="text" name="noinstructor" value="<?php echo $row['noinstructor'];?>"/></td></tr>
 <tr><td></td><td> <input  type="hidden" name="ID" value="<?php echo $id;?>"/></td></tr>
 </table><br /><tr><td colspan="2">
 <center>
@@ -64,10 +62,9 @@ if(isset($_GET['Update']))
 <?php
 if(isset($_POST['submit']))
 {
-
 	$sql = "UPDATE instructor SET nameinstructor='$_POST[nameinstructor]',icinstructor='$_POST[icinstructor]',noinstructor='$_POST[noinstructor]' WHERE IDinstructor= $_POST[ID]";
 	$res = mysql_query($sql) or die ("could not update".mysql_error());
-	echo "Staff Has Been Modified";
-	Header("Location:DeleteInstructorAdmin.php");
+	Header("Location:InstructorAdmin.php");
 }
 ?>
+</center>

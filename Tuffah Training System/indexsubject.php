@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Untitled Document</title>
 </head>
-
+<center>
 <body bgcolor="#CC6666">
 <img src="tuffah1.jpg" width="1303" height="187" />
 <div id="Container">
@@ -27,14 +27,35 @@
 	<div id="Footer"></div>
 </div>
 <br />
+<center>
+<h1>Subject Application</h1>
+<table width="900" border="1" rules="all">
+
+	<tr>
+	<th>Subject ID</th>
+    <th>Subject Name</th>
+    <th>Subject Code</th>
+	<th>Status</th>
+    </tr>
+	</table>
+</center>
+<center>
+<h1>Add Instructor</h1>
+<form action="ConfirmAddSubjectAdmin.php" method="POST">
+<table border="0" width="525">
+<tr><td><b>Subject Name:</b></td><td> <input size="50" type="text" name="nameinstructor"/></td></tr>
+<tr><td><b>Subject Code :</b></td><td> <input size="50" type="text" name="icinstructor"/></td></tr>
+</table>
+<br />
+
+<tr>
+<td colspan="2">
+<center>
+<input type="submit" value="Add New Subject"/></center></td></tr>
 <br />
 <br />
-<br />
-<br />
-  <div align="center">
-		<a href="AddSubjectAdmin.php"><input name="AddSubject" type="button" value="Add Subject" /></a>
-<br />
-		<a href="DeleteSubjectAdmin.php"><input name="Update/DeleteSubject" type="button" value="Update/Delete Subject" /></a>
-</div>
+</form>
+</center>
 </body>
+</center>
 </html>

@@ -27,14 +27,40 @@
 	<div id="Footer"></div>
 </div>
 <br />
-<br />
-<br />
 <center>
-  <div align="center">
-		<a href="AddTrainingAdmin.php"><input name="AddTraining" type="button" value="Add Training" /></a>
+<h1>Training Application</h1>
+<table width="900" border="1" rules="all">
+
+	<tr>
+	<th>No ID</th>
+    <th>Name</th>
+    <th>Date Start</th>
+    <th>Date End</th>
+    <th>Place</th>
+    <th>Student Total</th>
+	<th>Status</th>
+    </tr>
+	</table>
+</center>
+<center>
+<h1>Add Training</h1>
+<form action="ConfirmAddTrainingAdmin.php" method="POST">
+<table border="0" width="525">
+<tr><td><b>Training Name:</b></td><td> <input size="50" type="text" name="trainingname"/></td></tr>
+<tr><td><b>Start Date :</b></td><td> <input size="50" type="date" name="startdate"/></td></tr>
+<tr><td><b>End Date:</b></td><td> <input size="50" type="date" name="enddate"/></td></tr>
+<tr><td><b>Place:</b></td><td> <input size="50" type="text" name="place"/></td></tr>
+<tr><td><b>Total Student:</b> </td><td><input size="50" type="text" name="totalstudent"/></td></tr>
+</table>
 <br />
-		<a href="DeleteTrainingAdmin.php"><input name="Update/DeleteTraining" type="button" value="Update/Delete Training" /></a>
-</div>
+
+<tr>
+<td colspan="2">
+<center>
+<input type="submit" value="Add New Training"/></center></td></tr>
+<br />
+<br />
+</form>
 </center>
 </body>
 </html>

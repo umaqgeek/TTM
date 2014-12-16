@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Untitled Document</title>
 </head>
-
+<center>
 <body bgcolor="#CC6666">
 <img src="tuffah1.jpg" width="1303" height="187" />
 <div id="Container">
@@ -24,16 +24,40 @@
 	      </nav>
 	</div>	  
 	<div id="Content"></div>
+	<div id="Footer"></div>
 </div>
 <br />
+<center>
+<h1>Instrutor Application</h1>
+<table width="900" border="1" rules="all">
+
+	<tr>
+	<th>Instructor ID</th>
+    <th>Instructor Name</th>
+    <th>Instructor IC</th>
+    <th>No. Phone</th>
+	<th>Status</th>
+    </tr>
+	</table>
+</center>
+<center>
+<h1>Add Instructor</h1>
+<form action="ConfirmAddInstructorAdmin.php" method="POST">
+<table border="0" width="525">
+<tr><td><b>Instructor Name:</b></td><td> <input size="50" type="text" name="nameinstructor"/></td></tr>
+<tr><td><b>Instructor IC :</b></td><td> <input size="50" type="date" name="icinstructor"/></td></tr>
+<tr><td><b>No. Phone:</b></td><td> <input size="50" type="date" name="noinstructor"/></td></tr>
+</table>
+<br />
+
+<tr>
+<td colspan="2">
+<center>
+<input type="submit" value="Add New Instructor"/></center></td></tr>
 <br />
 <br />
-<br />
-<br />
-  <div align="center">
-		<a href="AddInstructorAdmin.php"><input name="AddInstructor" type="button" value="Add Instructor" /></a>
-<br />
-		<a href="DeleteInstructorAdmin.php"><input name="Update/DeleteInstructor" type="button" value="Update/Delete Instructor" /></a>
-</div>
+</form>
+</center>
 </body>
+</center>
 </html>

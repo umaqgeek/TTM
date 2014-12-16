@@ -36,10 +36,7 @@
 			<input type="submit" value="Search">
 <br />
 <br />
-</form>
-</center>
 
-<center>
 <?php
 	$dbhost = "localhost";
 	$dbuser="root";
@@ -54,7 +51,7 @@ if(! $conn)
 if (isset($_POST['IDtraining'])){
 $trainingname = $_POST['IDtraining'];
 $sql = 'SELECT trainingname, startdate, enddate, place, totalstudent FROM training WHERE IDtraining ="'.$trainingname.'"';
-
+}
 mysql_select_db('training_test');
 $retval = mysql_query($sql, $conn);
 if(! $retval)
@@ -70,26 +67,9 @@ while ($rows = mysql_fetch_array($retval,MYSQL_ASSOC))
 		 "<b>Total Student : {$rows['totalstudent']} </b><br><br>".
 	mysql_close($conn);
 	}
-}
 ?>
-</center>
-</form>
-<center>
-<h1>Add Training</h1>
-<form action="ConfirmAddTrainingUser.php" method="POST">
-<table border="0" width="400">
-<tr><td><b>Training Name:</b></td><td> <input size="50" type="text" name="trainingname"/></td></tr>
-<tr><td><b>Start Date :</b></td><td> <input size="50" type="date" name="startdate"/></td></tr>
-<tr><td><b>End Date:</b></td><td> <input size="50" type="date" name="enddate"/></td></tr>
-<tr><td><b>Place:</b></td><td> <input size="50" type="text" name="place"/></td></tr>
-<tr><td><b>Total Student:</b> </td><td><input size="50" type="text" name="totalstudent"/></td></tr>
-</table><br />
-<tr>
-<td colspan="2">
-<input type="submit" value="Add"/>
-</td>
-</tr>
 </form>
 </center>
 </body>
 </html>
+

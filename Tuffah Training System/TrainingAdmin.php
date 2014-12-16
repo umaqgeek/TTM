@@ -6,9 +6,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Untitled Document</title>
 </head>
-
+<center>
 <body bgcolor="#CC6666">
-<img src="tuffah1.jpg" width="1303" height="187" />
+<img src="tuffah1.jpg" width="1347" height="187" />
 <div id="Container">
 	<div id="Head">
   		<center><font size="20" color="#990000">TUFFAH TRAINING SYSTEM</font></center></div>
@@ -21,18 +21,85 @@
 				<li><a href="TrainingAdmin.php">Training</a></li>
 				<li><a href="logout.php">Logout</a></li>
 			</ul>
-	      </nav>
+      </nav>
 	</div>	  
 	<div id="Content"></div>
 	<div id="Footer"></div>
 </div>
 <br />
+<center>
+<h1>Training Application</h1>
+</center>	
+<center>
+<table width="900" border="1" rules="all">
+
+	<tr>
+	<th>No ID</th>
+    <th>Name</th>
+    <th>Date Start</th>
+    <th>Date End</th>
+    <th>Place</th>
+    <th>Student Total</th>
+	<th>Status</th>
+    </tr>
+<?php
+$dbuser="root";
+$dbpass = "";
+$dbhost = "localhost";
+$conn = mysql_connect($dbhost,$dbuser,$dbpass);
+
+if(! $conn)
+{
+	die('could not connect: '. mysql_error());
+}
+$sql = "SELECT * FROM training";
+
+mysql_select_db('training_test');
+$retval = mysql_query($sql,$conn);
+if(! $retval)
+{
+	die('could not get data: '. mysql_error());
+}
+$i=1;
+while ($res = mysql_fetch_array($retval))
+{
+	 echo "<tr>";
+	 echo "<td align='center'>".$i."</td>";
+	 echo "<td align='center'>".$res['trainingname']."</td>";
+	 echo "<td align='center'>".$res['startdate']."</td>";
+	 echo "<td align='center'>".$res['enddate']."</td>";
+	 echo "<td align='center'>".$res['place']."</td>";
+	 echo "<td align='center'>".$res['totalstudent']."</td>";
+	 echo "<td><a href='UpdateAdmin.php?Update=$res[IDtraining]'>Update</a>\n";
+	 echo "<a href='ConfirmDelete.php?Delete=$res[IDtraining]'>Delete</a></td><br>";
+
+	 $i++;
+ }
+?>
+</table>
+</center>
 <br />
 <br />
-  <div align="center">
-		<a href="AddTrainingAdmin.php"><input name="AddTraining" type="button" value="Add Training" /></a>
 <br />
-		<a href="DeleteTrainingAdmin.php"><input name="Update/DeleteTraining" type="button" value="Update/Delete Training" /></a>
-</div>
+
+<center>
+<h1>Add Training</h1>
+<form action="ConfirmAddTrainingAdmin.php" method="POST">
+<table border="0" width="525">
+<tr><td><b>Training Name:</b></td><td> <input size="50" type="text" name="trainingname"/></td></tr>
+<tr><td><b>Date Start :</b></td><td> <input size="50" type="date" name="startdate"/></td></tr>
+<tr><td><b>Date End:</b></td><td> <input size="50" type="date" name="enddate"/></td></tr>
+<tr><td><b>Place:</b></td><td> <input size="50" type="text" name="place"/></td></tr>
+<tr><td><b>Total Student:</b> </td><td><input size="50" type="text" name="totalstudent"/></td></tr>
+</table>
+<br />
+<tr>
+<td colspan="2">
+<center>
+<input type="submit" value="Add New Training"/></center></td></tr>
+<br />
+<br />
+</form>
 </body>
+</center>
 </html>

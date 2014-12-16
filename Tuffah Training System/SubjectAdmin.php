@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Untitled Document</title>
 </head>
-
+<center>
 <body bgcolor="#CC6666">
 <img src="tuffah1.jpg" width="1303" height="187" />
 <div id="Container">
@@ -27,12 +27,68 @@
 	<div id="Footer"></div>
 </div>
 <br />
+<center>
+<h1>Subject Application</h1>
+<table width="900" border="1" rules="all">
+
+	<tr>
+	<th>Subject ID</th>
+    <th>Subject Name</th>
+    <th>Subject Code</th>
+	<th>Status</th>
+    </tr>
+	
+<?php
+$dbuser="root";
+$dbpass = "";
+$dbhost = "localhost";
+$conn = mysql_connect($dbhost,$dbuser,$dbpass);
+
+if(! $conn)
+{
+	die('could not connect: '. mysql_error());
+}
+$sql = "SELECT * FROM subject";
+
+mysql_select_db('training_test');
+$retval = mysql_query($sql,$conn);
+if(! $retval)
+{
+	die('could not get data: '. mysql_error());
+}
+$i=1;
+while ($res = mysql_fetch_array($retval))
+{
+	 echo "<tr>";
+	 echo "<td align='center'>".$i."</td>";
+	 echo "<td align='center'>".$res['namesubject']."</td>";
+	 echo "<td align='center'>".$res['codesubject']."</td>";
+	 echo "<td><a href='UpdateSubjectAdmin.php?Update=$res[IDsubject]'>Update</a>\n";
+	 echo "<a href='ConfirmDeleteSubject.php?Delete=$res[IDsubject]'>Delete</a></td><br>";
+
+	 $i++;
+ }
+?>
+</table>
+</center>
+
+<center>
+<h1>Add Subject</h1>
+<form action="ConfirmAddSubjectAdmin.php" method="POST">
+<table border="0" width="525">
+<tr><td><b>Subject Name:</b></td><td> <input size="50" type="text" name="namesubject"/></td></tr>
+<tr><td><b>Subject Code :</b></td><td> <input size="50" type="text" name="codesubject"/></td></tr>
+</table>
+<br />
+
+<tr>
+<td colspan="2">
+<center>
+<input type="submit" value="Add New Subject"/></center></td></tr>
 <br />
 <br />
-  <div align="center">
-		<a href="AddSubjectAdmin.php"><input name="AddSubject" type="button" value="Add Subject" /></a>
-<br />
-		<a href="DeleteSubjectAdmin.php"><input name="Update/DeleteSubject" type="button" value="Update/Delete Subject" /></a>
-</div>
+</form>
+</center>
 </body>
+</center>
 </html>

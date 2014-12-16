@@ -50,8 +50,8 @@ if(! $conn)
 }
 if (isset($_POST['IDtraining'])){
 $trainingname = $_POST['IDtraining'];
-$sql = 'SELECT trainingname, startdate, enddate, place, totalstudent FROM training WHERE IDtraining ="'.$trainingname.'"';
-}
+$sql = 'SELECT IDtraining, trainingname, startdate, enddate, place, totalstudent FROM training WHERE IDtraining ="'.$trainingname.'"';
+
 mysql_select_db('training_test');
 $retval = mysql_query($sql, $conn);
 if(! $retval)
@@ -60,13 +60,16 @@ if(! $retval)
 }
 while ($rows = mysql_fetch_array($retval,MYSQL_ASSOC))
 {
-	echo "<b>Training Name : {$rows['trainingname']} </b><br><br>".
-	     "<b>Start Date : {$rows['startdate']} </b><br><br>".
-		 "<b>End Date : {$rows['enddate']} </b><br><br>".
+	echo "<b>ID Instructor : {$rows['IDtraining']} </b><br><br>".
+	     "<b>Name Training : {$rows['trainingname']} </b><br><br>".
+		 "<b>Date Start : {$rows['startdate']} </b><br><br>".
+		 "<b>Date End : {$rows['enddate']} </b><br><br>".
 		 "<b>Place : {$rows['place']} </b><br><br>".
-		 "<b>Total Student : {$rows['totalstudent']} </b><br><br>".
+		 "<b>Student Total : {$rows['totalstudent']} </b><br><br>".
+		 
 	mysql_close($conn);
 	}
+}
 ?>
 </form>
 </center>

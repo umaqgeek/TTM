@@ -31,11 +31,9 @@
 <br />
 <br />
 <center>
-<form action="SubjectAdmin.php" method="post">
+<form action="SubjectUser.php" method="post">
 			<b>ID Subject</b><input name="IDsubject" type="text" size="20" maxlength="200" />
 			<input type="submit" value="Search">
-</form>
-</center>
 <br />
 <br />
 <br />
@@ -71,6 +69,8 @@ while ($rows = mysql_fetch_array($retval,MYSQL_ASSOC))
 	}
 }
 ?>
+</center>
+</form>
 </center>
 </body>
 </html>

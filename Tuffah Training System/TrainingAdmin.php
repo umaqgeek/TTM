@@ -72,7 +72,6 @@ while ($res = mysql_fetch_array($retval))
 	 echo "<td align='center'>".$res['totalstudent']."</td>";
 	 echo "<td><a href='UpdateAdmin.php?Update=$res[IDtraining]'>Update</a>\n";
 	 echo "<a href='ConfirmDelete.php?Delete=$res[IDtraining]'>Delete</a></td><br>";
-
 	 $i++;
  }
 ?>

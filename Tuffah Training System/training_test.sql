@@ -27,7 +27,11 @@ CREATE TABLE `admin` (
 
 /*Data for the table `admin` */
 
+LOCK TABLES `admin` WRITE;
+
 insert  into `admin`(`username`,`password`) values ('sufi','sufi123');
+
+UNLOCK TABLES;
 
 /*Table structure for table `instructor` */
 
@@ -39,11 +43,15 @@ CREATE TABLE `instructor` (
   `icinstructor` varchar(200) DEFAULT NULL,
   `noinstructor` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`IDinstructor`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 /*Data for the table `instructor` */
 
-insert  into `instructor`(`IDinstructor`,`nameinstructor`,`icinstructor`,`noinstructor`) values (1,'Jamal Bin Husin','800423-10-0921','+060193750296'),(2,'Salim Bin Ehsan','801118-14-8536','+060123512972');
+LOCK TABLES `instructor` WRITE;
+
+insert  into `instructor`(`IDinstructor`,`nameinstructor`,`icinstructor`,`noinstructor`) values (1,'Jamal Bin Hussien','800423-10-0921','+60191231415'),(4,'Malim','780716-12-5602','+60185670892');
+
+UNLOCK TABLES;
 
 /*Table structure for table `subject` */
 
@@ -54,11 +62,15 @@ CREATE TABLE `subject` (
   `namesubject` varchar(200) DEFAULT NULL,
   `codesubject` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`IDsubject`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 /*Data for the table `subject` */
 
-insert  into `subject`(`IDsubject`,`namesubject`,`codesubject`) values (1,'Fast Track Java Course','Java'),(2,'Fast Track HTML 5 Course','HTML 5');
+LOCK TABLES `subject` WRITE;
+
+insert  into `subject`(`IDsubject`,`namesubject`,`codesubject`) values (1,'Java Were Easy Enough','Java'),(4,'J Query Modify The Structure Of Coding','JQuery');
+
+UNLOCK TABLES;
 
 /*Table structure for table `tibridge` */
 
@@ -75,7 +87,11 @@ CREATE TABLE `tibridge` (
 
 /*Data for the table `tibridge` */
 
+LOCK TABLES `tibridge` WRITE;
+
 insert  into `tibridge`(`IDtibridge`,`IDtraining`,`IDinstructor`,`timelearn`,`date`) values (1,1,1,'3 Hari','2014-12-15 10:59:18'),(2,2,2,'2 Hari','2014-11-25 10:59:48');
+
+UNLOCK TABLES;
 
 /*Table structure for table `training` */
 
@@ -84,14 +100,20 @@ DROP TABLE IF EXISTS `training`;
 CREATE TABLE `training` (
   `IDtraining` int(11) NOT NULL AUTO_INCREMENT,
   `trainingname` varchar(200) DEFAULT NULL,
-  `startdate` varchar(200) DEFAULT NULL,
-  `enddate` varchar(200) DEFAULT NULL,
+  `startdate` date DEFAULT NULL,
+  `enddate` date DEFAULT NULL,
+  `place` varchar(200) DEFAULT NULL,
+  `totalstudent` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`IDtraining`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 /*Data for the table `training` */
 
-insert  into `training`(`IDtraining`,`trainingname`,`startdate`,`enddate`) values (1,'',NULL,NULL),(2,'',NULL,NULL);
+LOCK TABLES `training` WRITE;
+
+insert  into `training`(`IDtraining`,`trainingname`,`startdate`,`enddate`,`place`,`totalstudent`) values (1,'','0000-00-00','0000-00-00','',''),(4,'Daus','2014-05-14','2014-05-16','BB Plaza','190 Student');
+
+UNLOCK TABLES;
 
 /*Table structure for table `users` */
 
@@ -109,7 +131,11 @@ CREATE TABLE `users` (
 
 /*Data for the table `users` */
 
+LOCK TABLES `users` WRITE;
+
 insert  into `users`(`IDuser`,`name`,`password`,`username`,`userIC`,`userGender`) values (1,'Muhammad Sufi Zainureen Bin Azmi','sufi123','sufi','940914-10-6363','Male'),(2,'Muhd Ahmad Bin Kamal','ahmad012','ahmad','941010-14-6921','Male');
+
+UNLOCK TABLES;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

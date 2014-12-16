@@ -31,11 +31,9 @@
 <br />
 <br />
 <center>
-<form action="InstructorAdmin.php" method="post">
+<form action="InstructorUser.php" method="post">
 			<b>ID Instructor</b><input name="IDinstructor" type="text" size="20" maxlength="200" />
 			<input type="submit" value="Search"/>
-</form>
-</center>
 <br />
 <br />
 <br />
@@ -73,6 +71,8 @@ while ($rows = mysql_fetch_array($retval,MYSQL_ASSOC))
 	}
 }
 ?>
+</center>
+</form>
 </center>
 </body>
 </html>

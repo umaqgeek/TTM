@@ -31,7 +31,7 @@
 <h1>Training Application</h1>
 </center>	
 <center>
-<table width="900" border="1" rules="all">
+<table width="900" border="3" rules="all" cellpadding="3">
 
 	<tr>
 	<th>No ID</th>
@@ -79,6 +79,53 @@ while ($res = mysql_fetch_array($retval))
 </center>
 <br />
 <br />
+
+<table width="900" border="3" rules="all" cellpadding="3">
+
+	<tr>
+	<th>No ID</th>
+    <th>Instructor Name</th>
+	<th>Instructor IC</th>
+	<th>Instructor No. Phone</th>
+	<th>Status</th>
+    </tr>
+<?php
+$dbuser="root";
+$dbpass = "";
+$dbhost = "localhost";
+$conn = mysql_connect($dbhost,$dbuser,$dbpass);
+
+if(! $conn)
+{
+	die('could not connect: '. mysql_error());
+}
+$sql = "SELECT training.IDtraining, instructor.nameinstructor, instructor.icinstructor, instructor.noinstructor
+		FROM training
+		INNER JOIN instructor
+		ON training.IDtraining=instructor.IDinstructor;";
+
+mysql_select_db('training_test');
+$retval = mysql_query($sql,$conn);
+if(! $retval)
+{
+	die('could not get data: '. mysql_error());
+}
+$i=1;
+while ($res = mysql_fetch_array($retval))
+{
+	 echo "<tr>";
+	 echo "<td align='center'>".$i."</td>";
+	 echo "<td align='center'>".$res['nameinstructor']."</td>";
+	 echo "<td align='center'>".$res['icinstructor']."</td>";
+	 echo "<td align='center'>".$res['noinstructor']."</td>";
+	 echo "<td><a href='UpdateAdminJoin.php?Update=$res[IDtraining]'>Update</a>\n";
+	 echo "<a href='ConfirmDeleteInstructorJoin.php?Delete=$res[IDtraining]'>Delete</a></td><br>";
+	 
+	 $i++;
+ }
+?>
+</table>
+<br />
 <br />
 
 <center>
@@ -96,8 +143,6 @@ while ($res = mysql_fetch_array($retval))
 <td colspan="2">
 <center>
 <input type="submit" value="Add New Training"/></center></td></tr>
-<br />
-<br />
 </form>
 </body>
 </center>

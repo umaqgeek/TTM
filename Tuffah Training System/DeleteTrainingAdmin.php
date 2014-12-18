@@ -53,7 +53,7 @@ $i=1;
 while ($row = mysql_fetch_array($retval))
 {
 
-	echo "$i. $row[trainingname] <a href='UpdateAdmin.php? Update=$row[IDtraining]'>Update</a><span>   </span><span>   </span><a href='ConfirmDelete.php?Update=$row[IDtraining]'>Delete</a><br><br>";
+	echo "$i. $row[trainingname]<a href='UpdateAdmin.php?Update=$row[IDtraining]'>Update</a><span>   </span><span>   </span><a href='ConfirmDelete.php?Update=$row[IDtraining]'>Delete</a><br><br>";
 	$i++;
 }
 ?>

@@ -29,7 +29,7 @@
 <br />
 <center>
 <h1>Subject Application</h1>
-<table width="900" border="1" rules="all">
+<table width="900" border="3" rules="all" cellpadding="3">
 
 	<tr>
 	<th>Subject ID</th>

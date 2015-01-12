@@ -32,6 +32,7 @@
 <center>
 <h1>Training Name</h1>
 <?php
+session_start();
 $dbuser="root";
 $dbpass = "";
 $dbhost = "localhost";

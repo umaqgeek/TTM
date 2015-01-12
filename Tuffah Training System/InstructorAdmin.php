@@ -39,7 +39,8 @@
 	<th>Status</th>
     </tr>
   
- <?php
+<?php
+session_start();
 $dbuser="root";
 $dbpass = "";
 $dbhost = "localhost";

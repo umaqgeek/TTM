@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <link rel="stylesheet" type="text/css" href="Menu.css" />
 <link rel="stylesheet" type="text/css" href="Layout.css" />
 <body bgcolor="#CC6666">
@@ -25,7 +28,8 @@
 </tr>
 
 <tr>
-<td colspan="3" align="center"><input type="submit" value="Login"></td>	
+<td colspan="3" align="center"><input type="hidden" value="Login">
+<br/><input type="submit" value="Login"></td>
 </tr>
 </table>
 </form>

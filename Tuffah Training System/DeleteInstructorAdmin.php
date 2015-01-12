@@ -29,6 +29,7 @@
 <center>
 <h1>Instructor Name</h1>
 <?php
+session_start();
 $dbuser="root";
 $dbpass = "";
 $dbhost = "localhost";

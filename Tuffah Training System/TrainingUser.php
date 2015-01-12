@@ -38,6 +38,7 @@
 <br />
 
 <?php
+session_start();
 	$dbhost = "localhost";
 	$dbuser="root";
 	$dbpass = "";    
@@ -71,6 +72,9 @@ while ($rows = mysql_fetch_array($retval,MYSQL_ASSOC))
 	}
 }
 ?>
+</form>
+<form action="AddTraining.php" method="post">
+<input name="Add" type="submit" value="Add Training"/>
 </form>
 </center>
 </body>

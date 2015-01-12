@@ -8,7 +8,7 @@
 </head>
 <center>
 <body bgcolor="#CC6666">
-<img src="tuffah1.jpg" width="1347" height="187" />
+<img src="tuffah1.jpg" width="1303" height="187" />
 <div id="Container">
 	<div id="Head">
   		<center><font size="20" color="#990000">TUFFAH TRAINING SYSTEM</font></center></div>
@@ -43,6 +43,7 @@
 	<th>Status</th>
     </tr>
 <?php
+session_start();
 $dbuser="root";
 $dbpass = "";
 $dbhost = "localhost";

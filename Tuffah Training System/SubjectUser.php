@@ -9,6 +9,12 @@
 
 <body bgcolor="#CC6666">
 <img src="tuffah1.jpg" width="1303" height="187" />
+<br />
+<?php
+session_start();
+$name = $_SESSION['username'];
+echo $_SESSION['username'];
+?>
 <div id="Container">
 	<div id="Head">
   		<center>
@@ -40,7 +46,6 @@
 <br />
 <center>
 <?php
-session_start();
 	$dbhost = "localhost";
 	$dbuser="root";
 	$dbpass = "";    

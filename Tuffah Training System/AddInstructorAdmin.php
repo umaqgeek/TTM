@@ -28,6 +28,11 @@
 </div>
 <center>
 <h1>Add Instructor</h1>
+<?php
+session_start();
+$name = $_SESSION['username'];
+echo $_SESSION['username'];
+?>
 <form action="ConfirmAddInstructorAdmin.php" method="POST">
 <table border="0" width="466">
 <tr>

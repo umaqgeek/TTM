@@ -44,6 +44,8 @@
     </tr>
 <?php
 session_start();
+$name = $_SESSION['username'];
+echo $_SESSION['username'];
 $dbuser="root";
 $dbpass = "";
 $dbhost = "localhost";
@@ -100,10 +102,7 @@ if(! $conn)
 {
 	die('could not connect: '. mysql_error());
 }
-$sql = "SELECT training.IDtraining, instructor.nameinstructor, instructor.icinstructor, instructor.noinstructor
-		FROM training
-		INNER JOIN instructor
-		ON training.IDtraining=instructor.IDinstructor;";
+$sql = "SELECT * FROM instructor";
 
 mysql_select_db('training_test');
 $retval = mysql_query($sql,$conn);
@@ -119,11 +118,12 @@ while ($res = mysql_fetch_array($retval))
 	 echo "<td align='center'>".$res['nameinstructor']."</td>";
 	 echo "<td align='center'>".$res['icinstructor']."</td>";
 	 echo "<td align='center'>".$res['noinstructor']."</td>";
-	 echo "<td><a href='UpdateAdminJoin.php?Update=$res[IDtraining]'>Update</a>\n";
-	 echo "<a href='ConfirmDeleteInstructorJoin.php?Delete=$res[IDtraining]'>Delete</a></td><br>";
-	 
+	 echo "<td><a href='UpdateAdminJoin.php?Update=$res[IDinstructor]'>Update</a>\n";
+	 echo "<a href='ConfirmDeleteInstructorJoin.php?Delete=$res[IDinstructor]'>Delete</a></td><br>";
+	  
 	 $i++;
- }
+	 
+}
 ?>
 </table>
 <br />
@@ -134,8 +134,8 @@ while ($res = mysql_fetch_array($retval))
 <form action="ConfirmAddTrainingAdmin.php" method="POST">
 <table border="0" width="525">
 <tr><td><b>Training Name:</b></td><td> <input size="50" type="text" name="trainingname"/></td></tr>
-<tr><td><b>Date Start :</b></td><td> <input size="50" type="date" name="startdate"/></td></tr>
-<tr><td><b>Date End:</b></td><td> <input size="50" type="date" name="enddate"/></td></tr>
+<tr><td><b>Date Start :</b></td><td> <input size="50" type="date" name="startdate" placeholder="yy-mm-dd"/></td></tr>
+<tr><td><b>Date End:</b></td><td> <input size="50" type="date" name="enddate" placeholder="yy-mm-dd"/></td></tr>
 <tr><td><b>Place:</b></td><td> <input size="50" type="text" name="place"/></td></tr>
 <tr><td><b>Total Student:</b> </td><td><input size="50" type="text" name="totalstudent"/></td></tr>
 </table>

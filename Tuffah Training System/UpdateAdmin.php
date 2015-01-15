@@ -29,6 +29,8 @@
 <center>
 <?php
 session_start();
+$name = $_SESSION['username'];
+echo $_SESSION['username'];
 $dbuser="root";
 $dbpass = "";
 $dbhost = "localhost";
@@ -68,7 +70,7 @@ if(isset($_GET['Update']))
 if(isset($_POST['submit']))
 {
 
-	$sql = "UPDATE training SET trainingname='$_POST[trainingname]',startdate='$_POST[startdate]',enddate='$_POST[enddate]',place='$_POST[place]',totalstudent='$_POST[totalstudent]' WHERE IDtraining= $_POST[ID]";
+	$sql="UPDATE training SET trainingname='$_POST[trainingname]',startdate='$_POST[startdate]',enddate='$_POST[enddate]',place='$_POST[place]',totalstudent='$_POST[totalstudent]' WHERE IDtraining= $_POST[ID]";
 	$res = mysql_query($sql) or die ("could not update".mysql_error());
 	echo "Staff Has Been Modified";
 	Header("Location:TrainingAdmin.php");

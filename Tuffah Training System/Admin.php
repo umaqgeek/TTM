@@ -1,6 +1,5 @@
 <?php
 session_start();
-error_reporting(0);
 $name = $_SESSION['username'];
 echo $_SESSION['username'];
 ?>
@@ -14,7 +13,6 @@ echo $_SESSION['username'];
 </head>
 <body bgcolor="#CC6666">
 <img src="tuffah1.jpg" width="1303" height="187" />
-<?php echo $name;?>
 	<div id="Container">
 	<div id="Head">
   		<center>
@@ -32,5 +30,11 @@ echo $_SESSION['username'];
 	</div>	  
 	<div id="Content"></div>
 </div>
+<br />
+<br />
+<br />
+<center>
+<h1><?php echo "You Have Logged As Admin: $name";?></h1>
+</center>
 </body>
 </html>

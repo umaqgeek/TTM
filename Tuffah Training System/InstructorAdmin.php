@@ -38,9 +38,11 @@
     <th>No. Phone</th>
 	<th>Status</th>
     </tr>
-  
+
 <?php
 session_start();
+$name = $_SESSION['username'];
+echo $_SESSION['username'];
 $dbuser="root";
 $dbpass = "";
 $dbhost = "localhost";

@@ -28,6 +28,11 @@
 </div>
 <center>
 <h1>Add Subject</h1>
+<?php
+session_start();
+$name = $_SESSION['username'];
+echo $_SESSION['username'];
+?>
 <form action="ConfirmAddSubjectAdmin.php" method="POST">
 <table border="0" width="466">
 <tr>

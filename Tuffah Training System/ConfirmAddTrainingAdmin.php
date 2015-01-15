@@ -29,6 +29,9 @@
 
 <center>
 <?php
+session_start();
+$name = $_SESSION['username'];
+echo $_SESSION['username'];
 $dbuser="root";
 $dbpass = "";
 $dbhost = "localhost";
@@ -44,13 +47,13 @@ $enddate = $_POST['enddate'];
 $place = $_POST['place'];
 $totalstudent = $_POST['totalstudent'];
 
-$sql = "INSERT INTO training (trainingname, startdate, enddate, place, totalstudent ) VALUES('$trainingname','$startdate','$enddate','$place','$totalstudent')";
+$sql = "INSERT INTO training(trainingname, startdate, enddate, place, totalstudent) VALUES('$trainingname','$startdate','$enddate','$place','$totalstudent')";
 
 mysql_select_db('training_test');
 $retval = mysql_query($sql, $conn);
 if($retval)
 {
-	echo "<b>SUCCESS!</b>";
+	echo "<br /><b>SUCCESS!</b>";
 	
 }
 else{

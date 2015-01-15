@@ -33,6 +33,8 @@
 <h1>Training Name</h1>
 <?php
 session_start();
+$name = $_SESSION['username'];
+echo $_SESSION['username'];
 $dbuser="root";
 $dbpass = "";
 $dbhost = "localhost";

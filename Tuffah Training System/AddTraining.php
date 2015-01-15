@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -30,6 +27,11 @@ session_start();
 	<div id="Footer"></div>
 </div>
 <center>
+<?php
+session_start();
+$name = $_SESSION['username'];
+echo $_SESSION['username'];
+?>
 <h1>Add Training</h1>
 <form action="ConfirmAddTrainingUser.php" method="POST">
 <table border="0" width="400">

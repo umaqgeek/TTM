@@ -20,7 +20,7 @@ session_start();
 
 <tr>
 <td>Password:</td>
-<td><input name="password" type="password" size="30" maxlength="200" /></td>
+<td><input name="password" type="password" size="30" maxlength="100" /></td>
 </tr>
 
 <tr>

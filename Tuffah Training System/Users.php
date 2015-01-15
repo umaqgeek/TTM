@@ -1,5 +1,7 @@
 <?php
 session_start();
+$name = $_SESSION['username'];
+echo $_SESSION['username'];
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -29,5 +31,12 @@ session_start();
 	</div>	  
 	<div id="Content"></div>
 </div>
+<br />
+<br />
+<br />
+<br />
+<center>
+<h1><?php echo "You Have Logged As:$name";?></h1>
+</center>
 </body>
 </html>

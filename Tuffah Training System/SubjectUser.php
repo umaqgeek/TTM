@@ -8,7 +8,7 @@
 </head>
 
 <body bgcolor="#CC6666">
-<img src="tuffah1.jpg" width="1303" height="187" />
+<img src="tuffah1.jpg" width="100%" height="200" />
 <br />
 <?php
 session_start();
@@ -38,7 +38,7 @@ echo $_SESSION['username'];
 <br />
 <center>
 <form action="SubjectUser.php" method="post">
-			<b>ID Subject</b><input name="IDsubject" type="text" size="20" maxlength="200" />
+			<b>Subject Name</b><input name="IDsubject" type="text" size="20" maxlength="200" />
 			<input type="submit" value="Search">
 <br />
 <br />
@@ -58,7 +58,7 @@ if(! $conn)
 }
 if (isset($_POST['IDsubject'])){
 $namesubject = $_POST['IDsubject'];
-$sql = 'SELECT IDsubject, namesubject, codesubject FROM subject WHERE IDsubject ="'.$namesubject.'"';
+$sql = "SELECT IDsubject, namesubject, codesubject FROM SUBJECT WHERE namesubject LIKE 'j%'";
 
 mysql_select_db('training_test');
 $retval = mysql_query($sql, $conn);
@@ -71,6 +71,7 @@ while ($rows = mysql_fetch_array($retval,MYSQL_ASSOC))
 	echo "<b>ID Subject : {$rows['IDsubject']} </b><br><br>".
 	     "<b>Name Subject : {$rows['namesubject']} </b><br><br>".
 		 "<b>Code Subject : {$rows['codesubject']} </b><br><br>".
+		 
 	mysql_close($conn);
 	}
 }

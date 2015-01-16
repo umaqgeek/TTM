@@ -31,7 +31,7 @@
 <h1>Training Application</h1>
 </center>	
 <center>
-<table width="900" border="3" rules="all" cellpadding="3">
+<table width="850" border="3" rules="all" cellpadding="3">
 
 	<tr>
 	<th>No ID</th>
@@ -73,8 +73,9 @@ while ($res = mysql_fetch_array($retval))
 	 echo "<td align='center'>".$res['enddate']."</td>";
 	 echo "<td align='center'>".$res['place']."</td>";
 	 echo "<td align='center'>".$res['totalstudent']."</td>";
-	 echo "<td><a href='UpdateAdmin.php?Update=$res[IDtraining]'>Update</a>\n";
-	 echo "<a href='ConfirmDelete.php?Delete=$res[IDtraining]'>Delete</a></td><br>";
+	 echo "<td align='center'><a href='UpdateAdmin.php?Update=$res[IDtraining]'>Update</a>\n";
+	 echo "<a href='ConfirmDelete.php?Delete=$res[IDtraining]'>Delete</a>\n";
+	 echo "<a href=Assign.php?Assign=$res[IDtraining]'>Assign</a></td><br>";
 	 $i++;
  }
 ?>
@@ -82,53 +83,6 @@ while ($res = mysql_fetch_array($retval))
 </center>
 <br />
 <br />
-
-<table width="900" border="3" rules="all" cellpadding="3">
-
-	<tr>
-	<th>No ID</th>
-    <th>Instructor Name</th>
-	<th>Instructor IC</th>
-	<th>Instructor No. Phone</th>
-	<th>Status</th>
-    </tr>
-<?php
-$dbuser="root";
-$dbpass = "";
-$dbhost = "localhost";
-$conn = mysql_connect($dbhost,$dbuser,$dbpass);
-
-if(! $conn)
-{
-	die('could not connect: '. mysql_error());
-}
-$sql = "SELECT * FROM instructor";
-
-mysql_select_db('training_test');
-$retval = mysql_query($sql,$conn);
-if(! $retval)
-{
-	die('could not get data: '. mysql_error());
-}
-$i=1;
-while ($res = mysql_fetch_array($retval))
-{
-	 echo "<tr>";
-	 echo "<td align='center'>".$i."</td>";
-	 echo "<td align='center'>".$res['nameinstructor']."</td>";
-	 echo "<td align='center'>".$res['icinstructor']."</td>";
-	 echo "<td align='center'>".$res['noinstructor']."</td>";
-	 echo "<td><a href='UpdateAdminJoin.php?Update=$res[IDinstructor]'>Update</a>\n";
-	 echo "<a href='ConfirmDeleteInstructorJoin.php?Delete=$res[IDinstructor]'>Delete</a></td><br>";
-	  
-	 $i++;
-	 
-}
-?>
-</table>
-<br />
-<br />
-
 <center>
 <h1>Add Training</h1>
 <form action="ConfirmAddTrainingAdmin.php" method="POST">

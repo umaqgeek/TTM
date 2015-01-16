@@ -38,7 +38,7 @@ echo $_SESSION['username'];
 <br />
 <center>
 <form action="TrainingUser.php" method="post">
-			<b>ID Trainer</b><input name="IDtraining" type="text" size="20" maxlength="200" />
+			<b>Trainer Name</b><input name="IDtraining" type="text" size="20" maxlength="200" />
 			<input type="submit" value="Search">
 <br />
 <br />
@@ -56,7 +56,7 @@ if(! $conn)
 }
 if (isset($_POST['IDtraining'])){
 $trainingname = $_POST['IDtraining'];
-$sql = 'SELECT IDtraining, trainingname, startdate, enddate, place, totalstudent FROM training WHERE IDtraining ="'.$trainingname.'"';
+$sql = 'SELECT IDtraining, trainingname, startdate, enddate, place, totalstudent FROM training WHERE trainingname ="'.$trainingname.'"';
 
 mysql_select_db('training_test');
 $retval = mysql_query($sql, $conn);
@@ -66,8 +66,7 @@ if(! $retval)
 }
 while ($rows = mysql_fetch_array($retval,MYSQL_ASSOC))
 {
-	echo "<b>ID Instructor : {$rows['IDtraining']} </b><br><br>".
-	     "<b>Name Training : {$rows['trainingname']} </b><br><br>".
+	echo "<b>ID Training : {$rows['IDtraining']} </b><br><br>".
 		 "<b>Date Start : {$rows['startdate']} </b><br><br>".
 		 "<b>Date End : {$rows['enddate']} </b><br><br>".
 		 "<b>Place : {$rows['place']} </b><br><br>".

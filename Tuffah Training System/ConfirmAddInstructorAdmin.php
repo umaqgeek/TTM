@@ -8,7 +8,7 @@
 </head>
 
 <body bgcolor="#CC6666">
-<img src="tuffah1.jpg" width="1303" height="187" />
+<img src="tuffah1.jpg" width="100%" height="200" />
 <div id="Container">
 	<div id="Head">
   		<center><font size="20" color="#990000">TUFFAH TRAINING SYSTEM</font></center></div>
@@ -40,14 +40,14 @@ if(! $conn)
 {
 	die('could not connect: '. mysql_error()); 
 }
-$nameinstructor = $_POST['nameinstructor'];
-$icinstructor = $_POST['icinstructor'];
-$noinstructor = $_POST['noinstructor'];
+$instructor_name = $_POST['instructor_name'];
+$instructor_ic = $_POST['instructor_ic'];
+$instructor_no = $_POST['instructor_no'];
 
-$sql = "INSERT INTO instructor (nameinstructor, icinstructor, noinstructor)
-		 VALUES('$nameinstructor','$icinstructor','$noinstructor')";
+$sql = "INSERT INTO instructor (instructor_name, instructor_ic, instructor_no)
+		 VALUES('$instructor_name','$instructor_ic','$instructor_no')";
 
-mysql_select_db('training_test');
+mysql_select_db('training_system');
 $retval = mysql_query($sql, $conn);
 if($retval)
 {

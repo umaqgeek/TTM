@@ -4,7 +4,7 @@ session_start();
 <link rel="stylesheet" type="text/css" href="Menu.css" />
 <link rel="stylesheet" type="text/css" href="Layout.css" />
 <body bgcolor="#CC6666">
-<img src="tuffah1.jpg" width="1303" height="187" />
+<img src="tuffah1.jpg" width="100%" height="200" />
 <br />
 <br />
 <center><font size="20" color="#990000">TUFFAH TRAINING SYSTEM</font></center>

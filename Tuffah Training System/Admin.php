@@ -1,8 +1,3 @@
-<?php
-session_start();
-$name = $_SESSION['username'];
-echo $_SESSION['username'];
-?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -12,11 +7,16 @@ echo $_SESSION['username'];
 <title>Untitled Document</title>
 </head>
 <body bgcolor="#CC6666">
-<img src="tuffah1.jpg" width="1303" height="187" />
-	<div id="Container">
+<img src="tuffah1.jpg" width="100%" height="200" />
+<?php
+session_start();
+$name = $_SESSION['username'];
+echo $_SESSION['username'];
+?>
+<center>
+<div id="Container">
 	<div id="Head">
-  		<center>
-  		<font size="20" color="#990000">TUFFAH TRAINING SYSTEM</font></center></div>
+  		<center><font size="20" color="#990000">TUFFAH TRAINING SYSTEM</font></center></div>
 	<div id="Navbar">
 		<nav>
 			<ul>
@@ -24,11 +24,12 @@ echo $_SESSION['username'];
     			<li><a href="SubjectAdmin.php">Subject</a></li>
 				<li><a href="InstructorAdmin.php">Instructor</a></li>
 				<li><a href="TrainingAdmin.php">Training</a></li>
-				<li><a href="logout.php">Logout</a></li>			
+				<li><a href="logout.php">Logout</a></li>
 			</ul>
-	      </nav>
+      </nav>
 	</div>	  
 	<div id="Content"></div>
+	<div id="Footer"></div>
 </div>
 <br />
 <br />

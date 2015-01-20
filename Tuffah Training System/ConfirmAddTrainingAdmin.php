@@ -8,7 +8,7 @@
 </head>
 
 <body bgcolor="#CC6666">
-<img src="tuffah1.jpg" width="1303" height="187" />
+<img src="tuffah1.jpg" width="100%" height="200" />
 <div id="Container">
 	<div id="Head">
   		<center><font size="20" color="#990000">TUFFAH TRAINING SYSTEM</font></center></div>
@@ -36,20 +36,19 @@ $dbuser="root";
 $dbpass = "";
 $dbhost = "localhost";
 $conn = mysql_connect($dbhost,$dbuser,$dbpass);
-
+$training_name= $_POST['training_name'];
+$training_startdate= $_POST['training_startdate'];
+$training_enddate= $_POST['training_enddate'];
+$training_place= $_POST['training_place'];
+$training_totalstudent= $_POST['training_totalstudent'];
 if(! $conn)
 {
 	die('could not connect: '. mysql_error()); 
 }
-$trainingname = $_POST['trainingname'];
-$startdate = $_POST['startdate'];
-$enddate = $_POST['enddate'];
-$place = $_POST['place'];
-$totalstudent = $_POST['totalstudent'];
+$sql = "INSERT INTO training(training_name, training_startdate, training_enddate, training_place, training_totalstudent) 
+		VALUES('$training_name','$training_startdate','$training_enddate','$training_place','$training_totalstudent')";
 
-$sql = "INSERT INTO training(trainingname, startdate, enddate, place, totalstudent) VALUES('$trainingname','$startdate','$enddate','$place','$totalstudent')";
-
-mysql_select_db('training_test');
+mysql_select_db('training_system');
 $retval = mysql_query($sql, $conn);
 if($retval)
 {
@@ -60,7 +59,8 @@ else{
 	die('could not get data: '. mysql_error());;
 }
 ?>
-<br /><br />
+<br />
+<br />
 <a href="TrainingAdmin.php"><input type="submit" value="Back"/></a>
 
 </center>

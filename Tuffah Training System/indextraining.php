@@ -8,7 +8,7 @@
 </head>
 
 <body bgcolor="#CC6666">
-<img src="tuffah1.jpg" width="1303" height="187" />
+<img src="tuffah1.jpg" width="100%" height="200" />
 <div id="Container">
 	<div id="Head">
   		<center><font size="20" color="#990000">TUFFAH TRAINING SYSTEM</font></center></div>
@@ -46,11 +46,11 @@
 <h1>Add Training</h1>
 <form action="ConfirmAddTrainingAdmin.php" method="POST">
 <table border="0" width="525">
-<tr><td><b>Training Name:</b></td><td> <input size="50" type="text" name="trainingname"/></td></tr>
-<tr><td><b>Start Date :</b></td><td> <input size="50" type="date" name="startdate"/></td></tr>
-<tr><td><b>End Date:</b></td><td> <input size="50" type="date" name="enddate"/></td></tr>
-<tr><td><b>Place:</b></td><td> <input size="50" type="text" name="place"/></td></tr>
-<tr><td><b>Total Student:</b> </td><td><input size="50" type="text" name="totalstudent"/></td></tr>
+<tr><td><b>Training Name:</b></td><td> <input size="50" type="text" name="training_name"/></td></tr>
+<tr><td><b>Date Start :</b></td><td> <input size="50" type="date" name="training_startdate" placeholder="yy-mm-dd"/></td></tr>
+<tr><td><b>Date End:</b></td><td> <input size="50" type="date" name="training_enddate" placeholder="yy-mm-dd"/></td></tr>
+<tr><td><b>Place:</b></td><td> <input size="50" type="text" name="training_place"/></td></tr>
+<tr><td><b>Total Student:</b> </td><td><input size="50" type="text" name="training_totalstudent"/></td></tr>
 </table>
 <br />
 

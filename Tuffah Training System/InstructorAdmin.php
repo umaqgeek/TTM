@@ -6,9 +6,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Untitled Document</title>
 </head>
-<center>
+
 <body bgcolor="#CC6666">
-<img src="tuffah1.jpg" width="1303" height="187" />
+<img src="tuffah1.jpg" width="100%" height="200" />
+<?php
+session_start();
+$name = $_SESSION['username'];
+echo $_SESSION['username'];
+?>
+<center>
 <div id="Container">
 	<div id="Head">
   		<center><font size="20" color="#990000">TUFFAH TRAINING SYSTEM</font></center></div>
@@ -40,9 +46,6 @@
     </tr>
 
 <?php
-session_start();
-$name = $_SESSION['username'];
-echo $_SESSION['username'];
 $dbuser="root";
 $dbpass = "";
 $dbhost = "localhost";
@@ -54,7 +57,7 @@ if(! $conn)
 }
 $sql = "SELECT * FROM instructor";
 
-mysql_select_db('training_test');
+mysql_select_db('training_system');
 $retval = mysql_query($sql,$conn);
 if(! $retval)
 {
@@ -65,11 +68,11 @@ while ($res = mysql_fetch_array($retval))
 {
 	 echo "<tr>";
 	 echo "<td align='center'>".$i."</td>";
-	 echo "<td align='center'>".$res['nameinstructor']."</td>";
-	 echo "<td align='center'>".$res['icinstructor']."</td>";
-	 echo "<td align='center'>".$res['noinstructor']."</td>";
-	 echo "<td><a href='UpdateInstructorAdmin.php?Update=$res[IDinstructor]'>Update</a>\n";
-	 echo "<a href='ConfirmDeleteInstructor.php?Delete=$res[IDinstructor]'>Delete</a></td><br>";
+	 echo "<td align='center'>".$res['instructor_name']."</td>";
+	 echo "<td align='center'>".$res['instructor_ic']."</td>";
+	 echo "<td align='center'>".$res['instructor_no']."</td>";
+	 echo "<td align='center'><a href='UpdateInstructorAdmin.php?Update=$res[instructor_id]'>Update</a>\n";
+	 echo "<a href='ConfirmDeleteInstructor.php?Delete=$res[instructor_id]'>Delete</a></td><br>";
 
 	 $i++;
  }
@@ -84,9 +87,9 @@ while ($res = mysql_fetch_array($retval))
 <h1>Add Instructor</h1>
 <form action="ConfirmAddInstructorAdmin.php" method="POST">
 <table border="0" width="525">
-<tr><td><b>Instructor Name:</b></td><td> <input size="50" type="text" name="nameinstructor"/></td></tr>
-<tr><td><b>Instructor IC :</b></td><td> <input size="50" type="text" name="icinstructor"/></td></tr>
-<tr><td><b>No. Phone:</b></td><td> <input size="50" type="text" name="noinstructor"/></td></tr>
+<tr><td><b>Instructor Name:</b></td><td> <input size="50" type="text" name="instructor_name"/></td></tr>
+<tr><td><b>Instructor IC :</b></td><td> <input size="50" type="text" name="instructor_ic"/></td></tr>
+<tr><td><b>No. Phone:</b></td><td> <input size="50" type="text" name="instructor_no"/></td></tr>
 </table>
 <br />
 

@@ -8,7 +8,7 @@
 </head>
 
 <body bgcolor="#CC6666">
-<img src="tuffah1.jpg" width="1303" height="187" />
+<img src="tuffah1.jpg" width="100%" height="200" />
 <div id="Container">
 	<div id="Head">
   		<center><font size="20" color="#990000">TUFFAH TRAINING SYSTEM</font></center></div>
@@ -46,7 +46,7 @@ if(! $conn)
 }
 $sql = "SELECT * FROM training";
 
-mysql_select_db('training_test');
+mysql_select_db('training_system');
 $retval = mysql_query($sql,$conn);
 if(! $retval)
 {
@@ -56,7 +56,7 @@ $i=1;
 while ($row = mysql_fetch_array($retval))
 {
 
-	echo "$i. $row[trainingname]<a href='UpdateAdmin.php?Update=$row[IDtraining]'>Update</a><span>   </span><span>   </span><a href='ConfirmDelete.php?Update=$row[IDtraining]'>Delete</a><br><br>";
+	echo "$i. $row[training_name]<a href='UpdateAdmin.php?Update=$row[training_id]'>Update</a><span>   </span><span>   </span><a href='ConfirmDelete.php?Update=$row[training_id]'>Delete</a><br><br>";
 	$i++;
 }
 ?>

@@ -8,7 +8,7 @@
 </head>
 
 <body bgcolor="#CC6666">
-<img src="tuffah1.jpg" width="1303" height="187" />
+<img src="tuffah1.jpg" width="100%" height="200" />
 <div id="Container">
 	<div id="Head">
   		<center><font size="20" color="#990000">TUFFAH TRAINING SYSTEM</font></center></div>
@@ -40,12 +40,12 @@ if(! $conn)
 {
 	die('could not connect: '. mysql_error()); 
 }
-$namesubject = $_POST['namesubject'];
-$codesubject = $_POST['codesubject'];
+$subject_name = $_POST['subject_name'];
+$subject_code = $_POST['subject_code'];
 
-$sql = "INSERT INTO subject (namesubject, codesubject ) VALUES('$namesubject','$codesubject')";
+$sql = "INSERT INTO subject (subject_name, subject_code ) VALUES('$subject_name','$subject_code')";
 
-mysql_select_db('training_test');
+mysql_select_db('training_system');
 $retval = mysql_query($sql, $conn);
 if($retval)
 {

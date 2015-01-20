@@ -35,11 +35,11 @@ echo $_SESSION['username'];
 <h1>Add Training</h1>
 <form action="ConfirmAddTrainingUser.php" method="POST">
 <table border="0" width="400">
-<tr><td><b>Training Name:</b></td><td> <input size="50" type="text" name="trainingname"/></td></tr>
-<tr><td><b>Start Date :</b></td><td> <input size="50" type="date" name="startdate"/></td></tr>
-<tr><td><b>End Date:</b></td><td> <input size="50" type="date" name="enddate"/></td></tr>
-<tr><td><b>Place:</b></td><td> <input size="50" type="text" name="place"/></td></tr>
-<tr><td><b>Total Student:</b> </td><td><input size="50" type="text" name="totalstudent"/></td></tr>
+<tr><td><b>Training Name:</b></td><td> <input size="50" type="text" name="training_name"/></td></tr>
+<tr><td><b>Start Date :</b></td><td> <input size="50" type="date" name="training_startdate"/></td></tr>
+<tr><td><b>End Date:</b></td><td> <input size="50" type="date" name="training_enddate"/></td></tr>
+<tr><td><b>Place:</b></td><td> <input size="50" type="text" name="training_place"/></td></tr>
+<tr><td><b>Total Student:</b> </td><td><input size="50" type="text" name="training_totalstudent"/></td></tr>
 </table><br />
 <tr>
 <td colspan="2">

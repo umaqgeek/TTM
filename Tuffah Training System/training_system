@@ -1,0 +1,144 @@
+/*
+SQLyog Ultimate v10.00 Beta1
+MySQL - 5.6.12-log : Database - training_system
+*********************************************************************
+*/
+
+/*!40101 SET NAMES utf8 */;
+
+/*!40101 SET SQL_MODE=''*/;
+
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`training_system` /*!40100 DEFAULT CHARACTER SET latin1 */;
+
+USE `training_system`;
+
+/*Table structure for table `admin` */
+
+DROP TABLE IF EXISTS `admin`;
+
+CREATE TABLE `admin` (
+  `admin_username` varchar(200) DEFAULT NULL,
+  `admin_pass` varchar(200) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `admin` */
+
+LOCK TABLES `admin` WRITE;
+
+insert  into `admin`(`admin_username`,`admin_pass`) values ('sufi','sufi123');
+
+UNLOCK TABLES;
+
+/*Table structure for table `instructor` */
+
+DROP TABLE IF EXISTS `instructor`;
+
+CREATE TABLE `instructor` (
+  `instructor_id` int(11) NOT NULL AUTO_INCREMENT,
+  `instructor_name` varchar(200) DEFAULT NULL,
+  `instructor_ic` varchar(200) DEFAULT NULL,
+  `instructor_no` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`instructor_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+/*Data for the table `instructor` */
+
+LOCK TABLES `instructor` WRITE;
+
+insert  into `instructor`(`instructor_id`,`instructor_name`,`instructor_ic`,`instructor_no`) values (1,'reza bin hasim','740908-10-8302','0193750296'),(2,'hadin bin saat','780103-14-5648','0123512972');
+
+UNLOCK TABLES;
+
+/*Table structure for table `subject` */
+
+DROP TABLE IF EXISTS `subject`;
+
+CREATE TABLE `subject` (
+  `subject_id` int(11) NOT NULL AUTO_INCREMENT,
+  `subject_name` varchar(200) DEFAULT NULL,
+  `subject_code` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`subject_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+/*Data for the table `subject` */
+
+LOCK TABLES `subject` WRITE;
+
+insert  into `subject`(`subject_id`,`subject_name`,`subject_code`) values (1,'java is better','java'),(2,'html is the best','html');
+
+UNLOCK TABLES;
+
+/*Table structure for table `tibridge` */
+
+DROP TABLE IF EXISTS `tibridge`;
+
+CREATE TABLE `tibridge` (
+  `tibridge_id` int(11) NOT NULL,
+  `user_id_user` int(11) DEFAULT NULL,
+  `training_id` int(11) DEFAULT NULL,
+  `instructor_id` int(11) DEFAULT NULL,
+  `subject_id` int(11) DEFAULT NULL,
+  `tibridge_date` date DEFAULT NULL,
+  `tibridge_time_learn` date DEFAULT NULL,
+  PRIMARY KEY (`tibridge_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `tibridge` */
+
+LOCK TABLES `tibridge` WRITE;
+
+insert  into `tibridge`(`tibridge_id`,`user_id_user`,`training_id`,`instructor_id`,`subject_id`,`tibridge_date`,`tibridge_time_learn`) values (1,NULL,NULL,NULL,NULL,'2015-01-27','2015-01-27');
+
+UNLOCK TABLES;
+
+/*Table structure for table `training` */
+
+DROP TABLE IF EXISTS `training`;
+
+CREATE TABLE `training` (
+  `training_id` int(11) NOT NULL AUTO_INCREMENT,
+  `training_name` varchar(200) DEFAULT NULL,
+  `training_startdate` date DEFAULT NULL,
+  `training_enddate` date DEFAULT NULL,
+  `training_place` varchar(200) DEFAULT NULL,
+  `training_totalstudent` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`training_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+/*Data for the table `training` */
+
+LOCK TABLES `training` WRITE;
+
+insert  into `training`(`training_id`,`training_name`,`training_startdate`,`training_enddate`,`training_place`,`training_totalstudent`) values (1,'jom buat html','2015-01-22','2015-01-23','Mitc','100');
+
+UNLOCK TABLES;
+
+/*Table structure for table `user` */
+
+DROP TABLE IF EXISTS `user`;
+
+CREATE TABLE `user` (
+  `user_id_user` int(11) NOT NULL AUTO_INCREMENT,
+  `user_name_user` varchar(200) DEFAULT NULL,
+  `user_ic` varchar(200) DEFAULT NULL,
+  `user_username` varchar(200) DEFAULT NULL,
+  `user_pass` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`user_id_user`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+/*Data for the table `user` */
+
+LOCK TABLES `user` WRITE;
+
+insert  into `user`(`user_id_user`,`user_name_user`,`user_ic`,`user_username`,`user_pass`) values (1,'ahmad bin kamil','800529-04-6392','ahmad','ahmad012');
+
+UNLOCK TABLES;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;

@@ -8,7 +8,7 @@
 </head>
 
 <body bgcolor="#CC6666">
-<img src="tuffah1.jpg" width="1303" height="187" />
+<img src="tuffah1.jpg" width="100%" height="200" />
 <div id="Container">
 	<div id="Head">
   		<center><font size="20" color="#990000">TUFFAH TRAINING SYSTEM</font></center></div>
@@ -36,9 +36,9 @@ echo $_SESSION['username'];
 <form action="ConfirmAddSubjectAdmin.php" method="POST">
 <table border="0" width="466">
 <tr>
-<td><b>Subject Name :</b></td><td> <input size="50" type="text" name="namesubject"/></td></tr>
+<td><b>Subject Name :</b></td><td> <input size="50" type="text" name="subject_name"/></td></tr>
 <tr>
-<td><b>Subject Code :</b></td><td> <input size="50" type="text" name="codesubject"/></td></tr>
+<td><b>Subject Code :</b></td><td> <input size="50" type="text" name="subject_code"/></td></tr>
 </table>
 <br />
 

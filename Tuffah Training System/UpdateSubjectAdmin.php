@@ -8,7 +8,7 @@
 </head>
 
 <body bgcolor="#CC6666">
-<img src="tuffah1.jpg" width="1303" height="187" />
+<img src="tuffah1.jpg" width="100%" height="200" />
 <div id="Container">
 	<div id="Head">
   		<center><font size="20" color="#990000">TUFFAH TRAINING SYSTEM</font></center></div>
@@ -34,7 +34,7 @@ echo $_SESSION['username'];
 $dbuser="root";
 $dbpass = "";
 $dbhost = "localhost";
-$db = "training_test";
+$db = "training_system";
 mysql_connect($dbhost,$dbuser,$dbpass);
 mysql_select_db($db);
 
@@ -42,7 +42,7 @@ mysql_select_db($db);
 if(isset($_GET['Update']))
 {
 	$id = $_GET['Update'];
-	$sql = mysql_query("SELECT * FROM subject WHERE IDsubject= $id");
+	$sql = mysql_query("SELECT * FROM subject WHERE subject_id= $id");
 	$row = mysql_fetch_array($sql);
 }
 ?>
@@ -50,8 +50,8 @@ if(isset($_GET['Update']))
 <h1>Update</h1>
 <form action="UpdateSubjectAdmin.php" method="POST">
 <table border="0" width="531">
-<tr><td><b>Subject Name:</b></td><td> <input size="50" type="text" name="namesubject" value="<?php echo $row['namesubject'];?>"/></td></tr>
-<tr><td><b>Subject Code:</b></td><td> <input size="50" type="text" name="codesubject" value="<?php echo $row['codesubject'];?>"/></td></tr>
+<tr><td><b>Subject Name:</b></td><td> <input size="50" type="text" name="subject_name" value="<?php echo $row['subject_name'];?>"/></td></tr>
+<tr><td><b>Subject Code:</b></td><td> <input size="50" type="text" name="subject_code" value="<?php echo $row['subject_code'];?>"/></td></tr>
 <tr><td></td><td> <input  type="hidden" name="ID" value="<?php echo $id;?>"/></td></tr>
 </table><br /><tr><td colspan="2">
 <center>
@@ -65,7 +65,10 @@ if(isset($_GET['Update']))
 if(isset($_POST['submit']))
 {
 
-	$sql = "UPDATE subject SET namesubject='$_POST[namesubject]',codesubject='$_POST[codesubject]' WHERE IDsubject= $_POST[ID]";
+	$sql = "UPDATE subject SET 
+				subject_name='$_POST[subject_name]',
+					subject_code='$_POST[subject_code]' 
+			WHERE subject_id= $_POST[ID]";
 	$res = mysql_query($sql) or die ("could not update".mysql_error());
 	Header("Location:SubjectAdmin.php");
 }

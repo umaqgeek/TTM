@@ -34,7 +34,7 @@ echo $_SESSION['username'];
 $dbuser="root";
 $dbpass = "";
 $dbhost = "localhost";
-$db = "training_test";
+$db = "training_system";
 mysql_connect($dbhost,$dbuser,$dbpass);
 mysql_select_db($db);
 
@@ -42,7 +42,7 @@ mysql_select_db($db);
 if(isset($_GET['Update']))
 {
 	$id = $_GET['Update'];
-	$sql = mysql_query("SELECT * FROM training WHERE IDtraining= $id");
+	$sql = mysql_query("SELECT * FROM training WHERE training_id= $id");
 	$row = mysql_fetch_array($sql);
 }
 
@@ -52,11 +52,11 @@ if(isset($_GET['Update']))
 <h1>Update</h1>
 <form action="UpdateAdmin.php" method="POST">
 <table border="0" width="400">
-<tr><td><b>Name Training:</b></td><td> <input size="50" type="text" name="trainingname" value="<?php echo $row['trainingname'];?>"/></td></tr>
-<tr><td><b>Start Date:</b></td><td> <input size="50" type="date" name="startdate" value="<?php echo $row['startdate'];?>"/></td></tr>
-<tr><td><b>End Date:</b></td><td> <input size="50" type="date" name="enddate" value="<?php echo $row['enddate'];?>"/></td></tr>
-<tr><td><b>Place:</b></td><td> <input size="50" type="text" name="place" value="<?php echo $row['place'];?>"/></td></tr>
-<tr><td><b>Total Student:</b></td><td> <input size="50" type="text" name="totalstudent" value="<?php echo $row['totalstudent'];?>"/></td></tr>
+<tr><td><b>Name Training:</b></td><td> <input size="50" type="text" name="training_name" value="<?php echo $row['training_name'];?>"/></td></tr>
+<tr><td><b>Start Date:</b></td><td> <input size="50" type="date" name="training_startdate" value="<?php echo $row['training_startdate'];?>"/></td></tr>
+<tr><td><b>End Date:</b></td><td> <input size="50" type="date" name="training_enddate" value="<?php echo $row['training_enddate'];?>"/></td></tr>
+<tr><td><b>Place:</b></td><td> <input size="50" type="text" name="training_place" value="<?php echo $row['training_place'];?>"/></td></tr>
+<tr><td><b>Total Student:</b></td><td> <input size="50" type="text" name="training_totalstudent" value="<?php echo $row['training_totalstudent'];?>"/></td></tr>
 <tr><td></td><td> <input  type="hidden" name="ID" value="<?php echo $id;?>"/></td></tr>
 </table><br /><tr><td colspan="2">
 <center>
@@ -70,7 +70,13 @@ if(isset($_GET['Update']))
 if(isset($_POST['submit']))
 {
 
-	$sql="UPDATE training SET trainingname='$_POST[trainingname]',startdate='$_POST[startdate]',enddate='$_POST[enddate]',place='$_POST[place]',totalstudent='$_POST[totalstudent]' WHERE IDtraining= $_POST[ID]";
+	$sql="UPDATE training SET 
+			training_name='$_POST[training_name]',
+				training_startdate='$_POST[training_startdate]',
+					training_enddate='$_POST[training_enddate]',
+						training_place='$_POST[training_place]',
+							training_totalstudent='$_POST[training_totalstudent]'
+	 							WHERE training_id= $_POST[ID]";
 	$res = mysql_query($sql) or die ("could not update".mysql_error());
 	echo "Staff Has Been Modified";
 	Header("Location:TrainingAdmin.php");

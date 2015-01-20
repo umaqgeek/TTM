@@ -38,10 +38,18 @@ echo $_SESSION['username'];
 <br />
 <center>
 <form action="InstructorUser.php" method="post">
-			<b>Instructor Name</b><input name="IDinstructor" type="text" size="20" maxlength="200" />
+			<b>Instructor Name</b><input name="instructor_id" type="text" size="20" maxlength="200" />
 			<input type="submit" value="Search"/>
 <br />
 <br />
+<table width="850" border="3" rules="all" cellpadding="3">
+
+	<tr>
+	<th>No ID</th>
+    <th>Instructor Name</th>
+    <th>Instructor IC</th>
+	<th>Instructor No</th>
+    </tr>
 <br />
 <br />
 <center>
@@ -49,35 +57,41 @@ echo $_SESSION['username'];
 	$dbhost = "localhost";
 	$dbuser="root";
 	$dbpass = "";    
-	$conn = mysql_connect($dbhost, $dbuser, $dbpass);
+	$conn=mysql_connect($dbhost, $dbuser, $dbpass);
 
 if(! $conn)
 
 {
 	die('could not connect: '. mysql_error());
 }
-if (isset($_POST['IDinstructor'])){
-$nameinstructor = $_POST['IDinstructor'];
-$sql = 'SELECT IDinstructor, nameinstructor, icinstructor, noinstructor FROM instructor WHERE nameinstructor ="'.$nameinstructor.'"';
+if (isset($_POST['instructor_id'])){
+$instructor_name = $_POST['instructor_id'];
+$sql = "SELECT instructor_id, instructor_name, instructor_ic, instructor_no 
+		FROM instructor 
+		WHERE instructor_name LIKE '$instructor_name' 
+		ORDER BY instructor_name";
 
-mysql_select_db('training_test');
+mysql_select_db('training_system');
 $retval = mysql_query($sql, $conn);
 if(! $retval)
 {
-	die('could not get data: '. mysql_error());
+	die('could not get data: '.mysql_error());
 }
-while ($rows = mysql_fetch_array($retval,MYSQL_ASSOC))
+$i=1;
+while ($res = mysql_fetch_array($retval))
 {
-	echo "<b>ID Instructor : {$rows['IDinstructor']} </b><br><br>".
-	     "<b>Name Instructor : {$rows['nameinstructor']} </b><br><br>".
-		 "<b>Ic Instructor : {$rows['icinstructor']} </b><br><br>".
-		 "<b>No Instructor : {$rows['noinstructor']} </b><br><br>".
-		 
-	mysql_close($conn);
+	 echo "<tr>";
+	 echo "<td align='center'>".$i."</td>";
+	 echo "<td align='center'>".$res['instructor_name']."</td>";
+	 echo "<td align='center'>".$res['instructor_no']."</td>";
+	 echo "<td align='center'>".$res['instructor_ic']."</td></tr>";
+	 
+	 $i++;
 	}
 }
 ?>
 </center>
+</table>
 </form>
 </center>
 </body>

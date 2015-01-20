@@ -8,17 +8,17 @@
 </head>
 
 <body bgcolor="#CC6666">
-<img src="tuffah1.jpg" width="1303" height="187" />
+<img src="tuffah1.jpg" width="100%" height="200" />
 <div id="Container">
 	<div id="Head">
   		<center><font size="20" color="#990000">TUFFAH TRAINING SYSTEM</font></center></div>
 	<div id="Navbar">
 		<nav>
 			<ul>
-				<li><a href="Admin.php">Home</a></li>
-    			<li><a href="SubjectAdmin.php">Subject</a></li>
-				<li><a href="InstructorAdmin.php">Instructor</a></li>
-				<li><a href="TrainingAdmin.php">Training</a></li>
+				<li><a href="Users.php">Home</a></li>
+    			<li><a href="SubjectUser.php">Subject</a></li>
+				<li><a href="InstructorUser.php">Instructor</a></li>
+				<li><a href="TrainingUser.php">Training</a></li>
 				<li><a href="logout.php">Logout</a></li>
 			</ul>
 	      </nav>
@@ -39,15 +39,16 @@ if(! $conn)
 {
 	die('could not connect: '. mysql_error()); 
 }
-$trainingname = $_POST['trainingname'];
-$startdate = $_POST['startdate'];
-$enddate = $_POST['enddate'];
-$place = $_POST['place'];
-$totalstudent = $_POST['totalstudent'];
+$training_name = $_POST['training_name'];
+$training_startdate = $_POST['training_startdate'];
+$training_enddate = $_POST['training_enddate'];
+$training_place = $_POST['training_place'];
+$training_totalstudent = $_POST['training_totalstudent'];
 
-$sql = "INSERT INTO training (trainingname, startdate, enddate, place, totalstudent ) VALUES('$trainingname','$startdate','$enddate','$place','$totalstudent')";
+$sql = "INSERT INTO training (training_name, training_startdate, training_enddate, training_place, training_totalstudent)
+		VALUES('$training_name','$training_startdate','$training_enddate','$training_place','$training_totalstudent')";
 
-mysql_select_db('training_test');
+mysql_select_db('training_system');
 $retval = mysql_query($sql, $conn);
 if($retval)
 {

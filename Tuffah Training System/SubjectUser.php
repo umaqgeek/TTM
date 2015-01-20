@@ -35,11 +35,16 @@ echo $_SESSION['username'];
 <br />
 <br />
 <br />
-<br />
 <center>
 <form action="SubjectUser.php" method="post">
-			<b>Subject Name</b><input name="IDsubject" type="text" size="20" maxlength="200" />
-			<input type="submit" value="Search">
+			<b>Subject Name</b><input name="subject_id" type="text" size="20" maxlength="200" />
+			<input type="submit" value="Search">		
+<table width="850" border="3" rules="all" cellpadding="3">
+	<tr>
+	<th>No ID</th>
+    <th>Name Subject</th>
+    <th>Code Subject</th>
+    </tr>
 <br />
 <br />
 <br />
@@ -56,28 +61,35 @@ if(! $conn)
 {
 	die('could not connect: '. mysql_error());
 }
-if (isset($_POST['IDsubject'])){
-$namesubject = $_POST['IDsubject'];
-$sql = "SELECT IDsubject, namesubject, codesubject FROM SUBJECT WHERE namesubject LIKE 'j%'";
+if (isset($_POST['subject_id'])){
+$subject_name = $_POST['subject_id'];
+$sql = "SELECT subject_id, subject_name, subject_code 
+		FROM subject 
+		WHERE subject_code LIKE '$subject_name' 
+		ORDER BY subject_code";
 
-mysql_select_db('training_test');
+mysql_select_db('training_system');
 $retval = mysql_query($sql, $conn);
 if(! $retval)
 {
 	die('could not get data: '. mysql_error());
 }
-while ($rows = mysql_fetch_array($retval,MYSQL_ASSOC))
+$i=1;
+while ($res = mysql_fetch_array($retval))
 {
-	echo "<b>ID Subject : {$rows['IDsubject']} </b><br><br>".
-	     "<b>Name Subject : {$rows['namesubject']} </b><br><br>".
-		 "<b>Code Subject : {$rows['codesubject']} </b><br><br>".
-		 
-	mysql_close($conn);
+	 echo "<tr>";
+	 echo "<td align='center'>".$i."</td>";
+	 echo "<td align='center'>".$res['subject_name']."</td>";
+	 echo "<td align='center'>".$res['subject_code']."</td></tr>";
+	 
+	 $i++;
 	}
 }
 ?>
 </center>
+</table>
 </form>
 </center>
 </body>
 </html>
+

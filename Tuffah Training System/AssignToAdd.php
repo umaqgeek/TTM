@@ -3,7 +3,7 @@
 <head>
 <link rel="stylesheet" type="text/css" href="Menu.css" />
 <link rel="stylesheet" type="text/css" href="Layout.css" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Untitled Document</title>
 </head>
 
@@ -21,34 +21,50 @@
 				<li><a href="TrainingAdmin.php">Training</a></li>
 				<li><a href="logout.php">Logout</a></li>
 			</ul>
-      </nav>
+	      </nav>
 	</div>	  
 	<div id="Content"></div>
 	<div id="Footer"></div>
 </div>
+
 <center>
-<h1>Add Instructor</h1>
 <?php
 session_start();
 $name = $_SESSION['username'];
 echo $_SESSION['username'];
-?>
-<form action="ConfirmAddInstructorAdmin.php" method="POST">
-<table border="0" width="466">
-<tr>
-<td><b>Instructor Name :</b></td><td> <input size="50" type="text" name="instructor_name"/></td></tr>
-<tr>
-<td><b>Instructor IC  :</b></td><td> <input size="50" type="text" name="instructor_ic"/></td></tr>
-<tr>
-<td><b>Instructor No  :</b></td><td> <input size="50" type="text" name="instructor_no"/></td></tr>
-</table>
-<br />
+$dbuser="root";
+$dbpass = "";
+$dbhost = "localhost";
+$conn = mysql_connect($dbhost,$dbuser,$dbpass);
+$training_name= $_POST['training_name'];
+$training_startdate= $_POST['training_startdate'];
+$training_enddate= $_POST['training_enddate'];
+$training_place= $_POST['training_place'];
+$training_totalstudent= $_POST['training_totalstudent'];
+if(! $conn)
+{
+	die('could not connect: '. mysql_error()); 
+}
+$sql = "INSERT INTO training(training_name, training_startdate, training_enddate, training_place, training_totalstudent) 
+		VALUES('$training_name','$training_startdate','$training_enddate','$training_place','$training_totalstudent')";
 
-<tr>
-<td colspan="2">
-<center>
-<input type="submit" value="Add"/></center></td></tr>
-</form>
+mysql_select_db('training_system');
+$retval = mysql_query($sql, $conn);
+if($retval)
+{
+	echo "<br /><b>SUCCESS!</b>";
+	
+}
+else{
+	die('could not get data: '. mysql_error());;
+}
+?>
+<br />
+<br />
+<a href="Assign.php"><input type="submit" value="Back"/></a>
+
+</center>
 </center>
 </body>
 </html>
+

@@ -8,7 +8,7 @@
 </head>
 
 <body bgcolor="#CC6666">
-<img src="tuffah1.jpg" width="1303" height="187" />
+<img src="tuffah1.jpg" width="100%" height="200" />
 <div id="Container">
 	<div id="Head">
   		<center><font size="20" color="#990000">TUFFAH TRAINING SYSTEM</font></center></div>
@@ -34,7 +34,7 @@ echo $_SESSION['username'];
 $dbuser="root";
 $dbpass = "";
 $dbhost = "localhost";
-$db = "training_test";
+$db = "training_system";
 mysql_connect($dbhost,$dbuser,$dbpass);
 mysql_select_db($db);
 
@@ -42,7 +42,7 @@ mysql_select_db($db);
 if(isset($_GET['Update']))
 {
 	$id = $_GET['Update'];
-	$sql = mysql_query("SELECT * FROM instructor WHERE IDinstructor= $id");
+	$sql = mysql_query("SELECT * FROM instructor WHERE instructor_id= $id");
 	$row = mysql_fetch_array($sql);
 }
 ?>
@@ -50,9 +50,9 @@ if(isset($_GET['Update']))
 <h1>Update</h1>
 <form action="UpdateInstructorAdmin.php" method="POST">
 <table border="0" width="531">
-<tr><td><b>Instructor Name:</b></td><td> <input size="50" type="text" name="nameinstructor" value="<?php echo $row['nameinstructor'];?>"/></td></tr>
-<tr><td><b>Instructor IC:</b></td><td> <input size="50" type="text" name="icinstructor" value="<?php echo $row['icinstructor'];?>"/></td></tr>
-<tr><td><b>Instructor No:</b></td><td> <input size="50" type="text" name="noinstructor" value="<?php echo $row['noinstructor'];?>"/></td></tr>
+<tr><td><b>Instructor Name:</b></td><td> <input size="50" type="text" name="instructor_name" value="<?php echo $row['instructor_name'];?>"/></td></tr>
+<tr><td><b>Instructor IC:</b></td><td> <input size="50" type="text" name="instructor_ic" value="<?php echo $row['instructor_ic'];?>"/></td></tr>
+<tr><td><b>Instructor No:</b></td><td> <input size="50" type="text" name="instructor_no" value="<?php echo $row['instructor_no'];?>"/></td></tr>
 <tr><td></td><td> <input  type="hidden" name="ID" value="<?php echo $id;?>"/></td></tr>
 </table><br /><tr><td colspan="2">
 <center>
@@ -65,7 +65,11 @@ if(isset($_GET['Update']))
 <?php
 if(isset($_POST['submit']))
 {
-	$sql = "UPDATE instructor SET nameinstructor='$_POST[nameinstructor]',icinstructor='$_POST[icinstructor]',noinstructor='$_POST[noinstructor]' WHERE IDinstructor= $_POST[ID]";
+	$sql = "UPDATE instructor SET 
+				instructor_name='$_POST[instructor_name]',
+					instructor_ic='$_POST[instructor_ic]',
+						instructor_no='$_POST[instructor_no]' 
+			WHERE instructor_id= $_POST[ID]";
 	$res = mysql_query($sql) or die ("could not update".mysql_error());
 	Header("Location:InstructorAdmin.php");
 }

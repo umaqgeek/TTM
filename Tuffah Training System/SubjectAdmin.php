@@ -6,9 +6,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Untitled Document</title>
 </head>
-<center>
+
 <body bgcolor="#CC6666">
-<img src="tuffah1.jpg" width="1303" height="187" />
+<img src="tuffah1.jpg" width="100%" height="200" />
+<?php
+session_start();
+$name = $_SESSION['username'];
+echo $_SESSION['username'];
+?>
+<center>
 <div id="Container">
 	<div id="Head">
   		<center><font size="20" color="#990000">TUFFAH TRAINING SYSTEM</font></center></div>
@@ -39,9 +45,6 @@
     </tr>
 	
 <?php
-session_start();
-$name = $_SESSION['username'];
-echo $_SESSION['username'];
 $dbuser="root";
 $dbpass = "";
 $dbhost = "localhost";
@@ -53,7 +56,7 @@ if(! $conn)
 }
 $sql = "SELECT * FROM subject";
 
-mysql_select_db('training_test');
+mysql_select_db('training_system');
 $retval = mysql_query($sql,$conn);
 if(! $retval)
 {
@@ -64,10 +67,10 @@ while ($res = mysql_fetch_array($retval))
 {
 	 echo "<tr>";
 	 echo "<td align='center'>".$i."</td>";
-	 echo "<td align='center'>".$res['namesubject']."</td>";
-	 echo "<td align='center'>".$res['codesubject']."</td>";
-	 echo "<td><a href='UpdateSubjectAdmin.php?Update=$res[IDsubject]'>Update</a>\n";
-	 echo "<a href='ConfirmDeleteSubject.php?Delete=$res[IDsubject]'>Delete</a></td><br>";
+	 echo "<td align='center'>".$res['subject_name']."</td>";
+	 echo "<td align='center'>".$res['subject_code']."</td>";
+	 echo "<td align='center'><a href='UpdateSubjectAdmin.php?Update=$res[subject_id]'>Update</a>\n";
+	 echo "<a href='ConfirmDeleteSubject.php?Delete=$res[subject_id]'>Delete</a></td><br>";
 
 	 $i++;
  }
@@ -79,8 +82,8 @@ while ($res = mysql_fetch_array($retval))
 <h1>Add Subject</h1>
 <form action="ConfirmAddSubjectAdmin.php" method="POST">
 <table border="0" width="525">
-<tr><td><b>Subject Name:</b></td><td> <input size="50" type="text" name="namesubject"/></td></tr>
-<tr><td><b>Subject Code :</b></td><td> <input size="50" type="text" name="codesubject"/></td></tr>
+<tr><td><b>Subject Name:</b></td><td> <input size="50" type="text" name="subject_name"/></td></tr>
+<tr><td><b>Subject Code :</b></td><td> <input size="50" type="text" name="subject_code"/></td></tr>
 </table>
 <br />
 

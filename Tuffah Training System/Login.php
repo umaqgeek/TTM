@@ -5,7 +5,7 @@ session_start();
 	$dbpass = "";    
 	$conn = mysql_connect($dbhost, $dbuser, $dbpass)
 	or die ("Error connecting to MSQL");
-	$dbname = "training_test";
+	$dbname ="training_system";
 	mysql_select_db($dbname) or
 	die ("Error connecting to Database: ".$dbname);
 		
@@ -31,7 +31,7 @@ if(isset($_POST['username'])){
 		$password = $_POST['password'];
 	
 			if($username !=''&& $password !=''){
-			$sql = "SELECT * FROM users WHERE username='".$username."' AND password='".$password."' LIMIT 1 ";
+			$sql = "SELECT * FROM user WHERE username='".$username."' AND password='".$password."' LIMIT 1 ";
 			$res = mysql_query($sql) or die(mysql_error());
 	
 				if(mysql_num_rows($res) > 0)
@@ -61,7 +61,7 @@ if(isset($_POST['username'])){
 </head>
 
 <body bgcolor="#CC6666">
-<img src="tuffah1.jpg" width="1303" height="187" />
+<img src="tuffah1.jpg" width="100%" height="200" />
 <br />
 <br />
 <center>

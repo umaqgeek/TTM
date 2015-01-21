@@ -8,7 +8,7 @@
 </head>
 
 <body bgcolor="#CC6666">
-<img src="tuffah1.jpg" width="1303" height="187" />
+<img src="tuffah1.jpg" width="100%" height="200" />
 <div id="Container">
 	<div id="Head">
   		<center><font size="20" color="#990000">TUFFAH TRAINING SYSTEM</font></center></div>
@@ -52,6 +52,9 @@ if(isset($_GET['Update']))
 <h1>Update</h1>
 <form action="UpdateAdmin.php" method="POST">
 <table border="0" width="400">
+<tr><td><b>Name Instructor:</b></td><td> <input size="50" type="text" name="instructor_name" value="<?php echo $row['instructor_name'];?>"/></td></tr>
+<tr><td><b>Name Subject:</b></td><td> <input size="50" type="text" name="subject_name" value="<?php echo $row['subject_name'];?>"/></td></tr>
+<tr><td><b>Code Subject:</b></td><td> <input size="50" type="text" name="subject_code" value="<?php echo $row['subject_code'];?>"/></td></tr>
 <tr><td><b>Name Training:</b></td><td> <input size="50" type="text" name="training_name" value="<?php echo $row['training_name'];?>"/></td></tr>
 <tr><td><b>Start Date:</b></td><td> <input size="50" type="date" name="training_startdate" value="<?php echo $row['training_startdate'];?>"/></td></tr>
 <tr><td><b>End Date:</b></td><td> <input size="50" type="date" name="training_enddate" value="<?php echo $row['training_enddate'];?>"/></td></tr>
@@ -71,12 +74,15 @@ if(isset($_POST['submit']))
 {
 
 	$sql="UPDATE training SET 
-			training_name='$_POST[training_name]',
-				training_startdate='$_POST[training_startdate]',
-					training_enddate='$_POST[training_enddate]',
-						training_place='$_POST[training_place]',
-							training_totalstudent='$_POST[training_totalstudent]'
-	 							WHERE training_id= $_POST[ID]";
+	instructor_name='$_POST[instructor_name]',
+		training_name='$_POST[training_name]',
+			subject_name='$_POST[subject_name]',
+				subject_code='$_POST[subject_code]',
+					training_startdate='$_POST[training_startdate]',
+						training_enddate='$_POST[training_enddate]',
+							training_place='$_POST[training_place]',
+								training_totalstudent='$_POST[training_totalstudent]'
+	 								WHERE training_id= $_POST[ID]";
 	$res = mysql_query($sql) or die ("could not update".mysql_error());
 	echo "Staff Has Been Modified";
 	Header("Location:TrainingAdmin.php");

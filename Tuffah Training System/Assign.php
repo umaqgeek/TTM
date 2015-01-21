@@ -13,6 +13,27 @@
 session_start();
 $name = $_SESSION['username'];
 echo $_SESSION['username'];
+
+$dbuser="root";
+$dbpass = "";
+$dbhost = "localhost";
+$conn = mysql_connect($dbhost,$dbuser,$dbpass);
+mysql_select_db('training_system');
+
+if(! $conn)
+{
+	die('could not connect: '. mysql_error());
+}
+
+
+if (isset($_GET['Assign'])){
+
+$id = $_GET['Assign'];
+$sql = mysql_query("SELECT * FROM training
+		WHERE training_id = $id");
+$row = mysql_fetch_array($sql);
+
+}
 ?>
 <div id="Container">
 	<div id="Head">
@@ -33,105 +54,59 @@ echo $_SESSION['username'];
 </div>
 <br />
 <br />
-<br />
-<br />
 <center>
-<table width="850" border="3" rules="all" cellpadding="3">
-	<tr>
-	<th>ID Training</th>
-	<th>Name Training</th>
-    <th>Date Start</th>
-    <th>Date End</th>
-    <th>Place</th>
-    <th>Student Total</th>
-    </tr>
-<?php
-$dbuser="root";
-$dbpass = "";
-$dbhost = "localhost";
-$conn = mysql_connect($dbhost,$dbuser,$dbpass);
-
-if(! $conn)
-{
-	die('could not connect: '.mysql_error());
-}
-$sql = "SELECT * FROM training WHERE training_id";
-
-mysql_select_db('training_system');
-$retval = mysql_query($sql,$conn);
-if(! $retval)
-{
-	die('could not get data: '. mysql_error());
-}
-$i=1;
-while ($res = mysql_fetch_array($retval))
-{
-	 echo "<tr>";
-	 echo "<td align='center'>".$i."</td>";
-	 echo "<td align='center'>".$res['training_name']."</td>";
-	 echo "<td align='center'>".$res['training_startdate']."</td>";
-	 echo "<td align='center'>".$res['training_enddate']."</td>";
-	 echo "<td align='center'>".$res['training_place']."</td>";
-	 echo "<td align='center'>".$res['training_totalstudent']."</td>";
-	 
-	 $i++;
-}
-?>
+<h1>Fill The Form</h1>
+<form action="AssignToAdd.php" method="POST">
+<table width="525" height="70" border="0">
+<td>Instructor Name<input name="names" type="text" /></td><br />
+<td>Subject Name<input name="sname" type="text" /></td><br />
+<td>Subject Code<input name="csname" type="text" /></td>
+<input name="training_name" type="hidden" value="<?php echo $row['training_name'] ?>"/>
+<input name="training_startdate" type="hidden" value="<?php echo $row['training_startdate'] ?>"/>
+<input name="training_enddate" type="hidden" value="<?php echo $row['training_enddate'] ?>"/>
+<input name="training_place" type="hidden" value="<?php echo $row['training_place'] ?>"/>
+<input name="training_totalstudent" type="hidden" value="<?php echo $row['training_totalstudent'] ?>"/>
+<input name="id" type="hidden" value="<?php echo $id ?>"/>
+<tr align="center">
+<tr><td></td></tr>
+<td colspan="5" align="center">
+<input type="submit" name="submit" value="Assign" />
+</td>
+</tr>
 </table>
-</center>
+</form>
 <br />
 <br />
-<center>
-Instructor Name
-<select name="Instructor">
-<option> Please Select </option>
-<option> <?php echo 'Reza Bin Hasim';?> </option>
-<option> <?php echo 'Hadin Bin Saat';?> </option>
-</select>
-<a href="#"><input name="Add" type="submit" value="Add"/></a>
-</center>
-<br />
-<br />
-<center>
-<table width="850" border="3" rules="all" cellpadding="3">
-	<tr>
-	<th>ID Training</th>
-	<th>Name Instructor</th>
-	<th>Name Training</th>
-    </tr>
+
 <?php
-$dbuser="root";
-$dbpass = "";
-$dbhost = "localhost";
-$conn = mysql_connect($dbhost,$dbuser,$dbpass);
+  if (isset($_POST['submit'])){
+$names = $_POST['names'];
+$sname = $_POST['sname'];
+$csname = $_POST['csname'];
+$tnames = $_POST['training_name'];
+$start = $_POST['training_startdate'];
+$end = $_POST['training_enddate'];
+$place = $_POST['training_place'];
+$total = $_POST['training_totalstudent'];
 
-if(! $conn)
-{
-	die('could not connect: '.mysql_error());
-}
-$sql = "SELECT training_id, instructor_id, training_name, instructor_name  FROM training, instructor WHERE training_id, instructor_id";
-
-mysql_select_db('training_system');
-$retval = mysql_query($sql,$conn);
-if(! $retval)
-{
-	die('could not get data: '. mysql_error());
-}
 $i=1;
-while ($res = mysql_fetch_array($retval))
-{
+
 	 echo "<tr>";
 	 echo "<td align='center'>".$i."</td>";
-	 echo "<td align='center'>".$res['instructor_name']."</td>";
-	 echo "<td align='center'>".$res['training_name']."</td>";
+	 echo "<td align='center'>".$names."</td>";
+	 echo "<td align='center'>".$sname."</td>";
+	 echo "<td align='center'>".$csname."</td>";
+	 echo "<td align='center'>".$tnames."</td>";
+	 echo "<td align='center'>".$start."</td>";
+	 echo "<td align='center'>".$end."</td>";
+	 echo "<td align='center'>".$place."</td>";
+	 echo "<td align='center'>".$total."</td></tr>";
+	 
+	$i++;
+}
 	
-	 
-	 $i++;
-}
 ?>
 </table>
-<br />
-<br />
 </center>
 </body>
 </html>

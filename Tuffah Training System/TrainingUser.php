@@ -45,31 +45,31 @@ echo $_SESSION['username'];
 
 	<tr>
 	<th>No ID</th>
-    <th>Name</th>
+	<th>Name Instructor</th>
+    <th>Name Training</th>
+	<th>Name Subject</th>
+	<th>Code Subject</th>
     <th>Date Start</th>
     <th>Date End</th>
     <th>Place</th>
     <th>Student Total</th>
-    </tr>
 <br />
 <br />
 <?php
-	$dbhost = "localhost";
-	$dbuser="root";
-	$dbpass = "";    
-	$conn = mysql_connect($dbhost, $dbuser, $dbpass);
+$dbuser="root";
+$dbpass = "";
+$dbhost = "localhost";
+$conn = mysql_connect($dbhost,$dbuser,$dbpass);
 
 if(! $conn)
-
 {
 	die('could not connect: '. mysql_error());
 }
 if (isset($_POST['training_id'])){
 $training_name = $_POST['training_id'];
-$sql = "SELECT training_id, training_name, training_startdate, training_enddate, training_place, training_totalstudent 
+$sql = "SELECT * 
 		FROM training 
-		WHERE training_name LIKE '$training_name' 
-		ORDER BY training_name";
+		WHERE training_name LIKE '$training_name'";
 
 mysql_select_db('training_system');
 $retval = mysql_query($sql,$conn);
@@ -82,14 +82,16 @@ while ($res = mysql_fetch_array($retval))
 {
 	 echo "<tr>";
 	 echo "<td align='center'>".$i."</td>";
+	 echo "<td align='center'>".$res['instructor_name']."</td>";
 	 echo "<td align='center'>".$res['training_name']."</td>";
+	 echo "<td align='center'>".$res['subject_name']."</td>";
+	 echo "<td align='center'>".$res['subject_code']."</td>";
 	 echo "<td align='center'>".$res['training_startdate']."</td>";
 	 echo "<td align='center'>".$res['training_enddate']."</td>";
 	 echo "<td align='center'>".$res['training_place']."</td>";
 	 echo "<td align='center'>".$res['training_totalstudent']."</td>";
-	 
 	 $i++;
-	}
+  }
 }
 ?>
 </table>

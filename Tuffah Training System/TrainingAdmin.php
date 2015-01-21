@@ -37,11 +37,14 @@ echo $_SESSION['username'];
 <h1>Training Application</h1>
 </center>	
 <center>
-<table width="850" border="3" rules="all" cellpadding="3">
+<table width="90%" border="3" rules="all" cellpadding="3">
 
 	<tr>
 	<th>No ID</th>
-    <th>Name</th>
+	<th>Name Instructor</th>
+    <th>Name Training</th>
+	<th>Name Subject</th>
+	<th>Code Subject</th>
     <th>Date Start</th>
     <th>Date End</th>
     <th>Place</th>
@@ -71,14 +74,17 @@ while ($res = mysql_fetch_array($retval))
 {
 	 echo "<tr>";
 	 echo "<td align='center'>".$i."</td>";
+	 echo "<td align='center'>".$res['instructor_name']."</td>";
 	 echo "<td align='center'>".$res['training_name']."</td>";
+	 echo "<td align='center'>".$res['subject_name']."</td>";
+	 echo "<td align='center'>".$res['subject_code']."</td>";
 	 echo "<td align='center'>".$res['training_startdate']."</td>";
 	 echo "<td align='center'>".$res['training_enddate']."</td>";
 	 echo "<td align='center'>".$res['training_place']."</td>";
 	 echo "<td align='center'>".$res['training_totalstudent']."</td>";
 	 echo "<td align='center'><a href='UpdateAdmin.php?Update=$res[training_id]'>Update</a>\n";
 	 echo "<a href='ConfirmDelete.php?Delete=$res[training_id]'>Delete</a>\n";
-	 echo "<a href=Assign.php?Assign=$res[training_id]'>Assign</a></td></tr><br>";
+	 echo "<a href='Assign.php?Assign=$res[training_id]'>Assign</a></td></tr><br>";
 	 $i++;
  }
 ?>

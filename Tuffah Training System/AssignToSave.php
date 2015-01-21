@@ -82,7 +82,6 @@ $start = $_POST['training_startdate'];
 $end = $_POST['training_enddate'];
 $place = $_POST['training_place'];
 $total = $_POST['training_totalstudent'];
-$id = $_POST['id'];
 
 $i=1;
 
@@ -106,30 +105,10 @@ $i=1;
 <br />
 <br />
 <center>
-<form action="AssignToAdd.php" method="post">
 <table>
-<td><input type="hidden" name="namaa" value="<?php echo $names ?>"/></td>
-<td><input type="hidden" name="namaaa" value="<?php echo $sname ?>"/></td>
-<td><input type="hidden" name="namaaa" value="<?php echo $csname ?>"/></td>
-<td><input type="hidden" name="ids" value="<?php echo $id ?>"/></td>
-<td><input type="submit" name="save" value="Save"/></td>
-<td><a href="TrainingAdmin.php"><input type="submit" value="Back"/></a></td>
-</table></form>
-<?php 
-if (isset($_POST['save'])){
-$namaa = $_POST['namaa'];
-$namaaa = $_POST['namaaa'];
-$namaaa = $_POST['namaaa'];
-$ids = $_POST['ids'];
-	
-	$query = mysql_query("UPDATE training
-SET instructor_name = '$namaa',
-	subject_name 	= '$namaaa',
-	subject_code	='$namaaa'
-WHERE training_id = $ids");
-		header("Location:TrainingAdmin.php");
-}
-?>
+<td><input type="submit" value="Save"/></td>
+<td><input type="submit" value="Back"/></td>
+</table>
 </center>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
 <link rel="stylesheet" type="text/css" href="Menu.css" />
 <link rel="stylesheet" type="text/css" href="Layout.css" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Untitled Document</title>
 </head>
 
@@ -21,13 +21,16 @@
 				<li><a href="Account.php">Account</a></li>
 				<li><a href="logout.php">Logout</a></li>
 			</ul>
-      </nav>
+	      </nav>
 	</div>	  
 	<div id="Content"></div>
 	<div id="Footer"></div>
 </div>
+<br />
+<br />
+<br />
 <center>
-<h1>Instructor Name</h1>
+<h1>Subject Name</h1>
 <?php
 session_start();
 $name = $_SESSION['username'];
@@ -41,7 +44,7 @@ if(! $conn)
 {
 	die('could not connect: '. mysql_error());
 }
-$sql = "SELECT * FROM instructor";
+$sql = "SELECT * FROM user";
 
 mysql_select_db('training_system');
 $retval = mysql_query($sql,$conn);
@@ -52,10 +55,10 @@ if(! $retval)
 $i=1;
 while ($row = mysql_fetch_array($retval))
 {
-echo "$i. $row[instructor_name] <a href='UpdateInstructorAdmin.php? Update=$row[instructor_id]'>Update</a><span>   </span><span>   </span><a href='ConfirmDeleteSubject.php?Update=$row[instructor_id]'>Delete</a><br><br>";
+	echo "$i. $row[username] <a href='UpdateAccount.php? Update=$row[user_id_user]'>Update</a><span>   </span><span>   </span><a href='ConfirmDeleteAccount.php?Update=$row[user_id_user]'>Delete</a><br><br>";
 	$i++;
 }
 ?>
 </center>
 </body>
-</html>
+</div>

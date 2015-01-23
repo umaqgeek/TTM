@@ -42,17 +42,18 @@ mysql_select_db($db);
 if(isset($_GET['Update']))
 {
 	$id = $_GET['Update'];
-	$sql = mysql_query("SELECT * FROM instructor WHERE instructor_id= $id");
+	$sql = mysql_query("SELECT * FROM user WHERE user_id_user= $id");
 	$row = mysql_fetch_array($sql);
 }
 ?>
 <center>
 <h1>Update</h1>
-<form action="UpdateInstructorAdmin.php" method="POST">
+<form action="UpdateAccount.php" method="POST">
 <table border="0" width="531">
-<tr><td><b>Instructor Name:</b></td><td> <input size="50" type="text" name="instructor_name" value="<?php echo $row['instructor_name'];?>"/></td></tr>
-<tr><td><b>Instructor IC:</b></td><td> <input size="50" type="text" name="instructor_ic" value="<?php echo $row['instructor_ic'];?>"/></td></tr>
-<tr><td><b>Instructor No:</b></td><td> <input size="50" type="text" name="instructor_no" value="<?php echo $row['instructor_no'];?>"/></td></tr>
+<tr><td><b>Name:</b></td><td> <input size="50" type="text" name="user_name_user" value="<?php echo $row['user_name_user'];?>"/></td></tr>
+<tr><td><b>User IC:</b></td><td> <input size="50" type="text" name="user_ic" value="<?php echo $row['user_ic'];?>"/></td></tr>
+<tr><td><b>Username:</b></td><td> <input size="50" type="text" name="username" value="<?php echo $row['username'];?>"/></td></tr>
+<tr><td><b>Password:</b></td><td> <input size="50" type="password" name="password" value="<?php echo $row['password'];?>"/></td></tr>
 <tr><td></td><td> <input  type="hidden" name="ID" value="<?php echo $id;?>"/></td></tr>
 </table><br /><tr><td colspan="2">
 <center>
@@ -65,13 +66,15 @@ if(isset($_GET['Update']))
 <?php
 if(isset($_POST['submit']))
 {
-	$sql = "UPDATE instructor SET 
-				instructor_name='$_POST[instructor_name]',
-					instructor_ic='$_POST[instructor_ic]',
-						instructor_no='$_POST[instructor_no]' 
-			WHERE instructor_id= $_POST[ID]";
+
+	$sql = "UPDATE user SET 
+				user_name_user='$_POST[user_name_user]',
+					user_ic='$_POST[user_ic]',
+						username='$_POST[username]',
+							password='$_POST[password]' 
+			WHERE user_id_user= $_POST[ID]";
 	$res = mysql_query($sql) or die ("could not update".mysql_error());
-	Header("Location:InstructorAdmin.php");
+	Header("Location:Account.php");
 }
 ?>
 </center>

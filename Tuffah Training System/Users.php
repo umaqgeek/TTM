@@ -15,9 +15,7 @@ $name = $_SESSION['username'];
 echo $_SESSION['username'];
 ?>
 	<div id="Container">
-	<div id="Head">
-  		<center>
-  		<font size="20" color="#990000">TUFFAH TRAINING SYSTEM</font></center></div>
+	<div id="Head"></div>
 	<div id="Navbar">
 		<nav>
 			<ul>
@@ -36,7 +34,8 @@ echo $_SESSION['username'];
 <br />
 <br />
 <center>
-<h1><?php echo "You Have Logged As:$name";?></h1>
+<h1 style="color:#990000">TUFFAH TRAINING MANAGEMENT</h1>
+<h2><?php echo "You Have Logged As:$name";?></h2>
 </center>
 </body>
 </html>

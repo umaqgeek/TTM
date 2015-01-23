@@ -4,23 +4,25 @@ body  {
 }
 
 #Container {
-	width:800px;
+	width:80%;
 	height:auto;
-	margin-left:300px;
-	margin-right:150px;
+	margin-left:250px;
+	margin-right:300px;
 	margin-top:10px;
 	margin-bottom:10px;
 }
 #Header {
+	margin-left:300px;
+	margin-right:250px;
 	height:67px;
-	margin-bottom:21px;
+	margin-bottom:50px;
 		
 }
 #Nav {
 	height:auto;
 	background-color:#CCCCCC;
-	margin-left:200px;
-	margin-right:150px;
+	margin-left:300px;
+	margin-right:250px;
 	margin-top:10px;
 	margin-bottom:10px;
 	display:inline;

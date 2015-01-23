@@ -10,8 +10,7 @@
 <body bgcolor="#CC6666">
 <img src="tuffah1.jpg" width="100%" height="200" />
 <div id="Container">
-	<div id="Head">
-  		<center><font size="20" color="#990000">TUFFAH TRAINING SYSTEM</font></center></div>
+	<div id="Head"></div>
 	<div id="Navbar">
 		<nav>
 			<ul>
@@ -19,6 +18,7 @@
     			<li><a href="SubjectAdmin.php">Subject</a></li>
 				<li><a href="InstructorAdmin.php">Instructor</a></li>
 				<li><a href="TrainingAdmin.php">Training</a></li>
+				<li><a href="Account.php">Account</a></li>
 				<li><a href="logout.php">Logout</a></li>
 			</ul>
 	      </nav>

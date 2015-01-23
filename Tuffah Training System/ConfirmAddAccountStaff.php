@@ -3,7 +3,7 @@
 <head>
 <link rel="stylesheet" type="text/css" href="Menu.css" />
 <link rel="stylesheet" type="text/css" href="Layout.css" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <title>Untitled Document</title>
 </head>
 
@@ -21,13 +21,12 @@
 				<li><a href="Account.php">Account</a></li>
 				<li><a href="logout.php">Logout</a></li>
 			</ul>
-      </nav>
+	      </nav>
 	</div>	  
 	<div id="Content"></div>
 	<div id="Footer"></div>
 </div>
 <center>
-<h1>Instructor Name</h1>
 <?php
 session_start();
 $name = $_SESSION['username'];
@@ -39,23 +38,29 @@ $conn = mysql_connect($dbhost,$dbuser,$dbpass);
 
 if(! $conn)
 {
-	die('could not connect: '. mysql_error());
+	die('could not connect: '. mysql_error()); 
 }
-$sql = "SELECT * FROM instructor";
+$user_name_user = $_POST['user_name_user'];
+$user_ic = $_POST['user_ic'];
+$username = $_POST['username'];
+$password = $_POST['password'];
+
+$sql = "INSERT INTO user (user_name_user, user_ic, username, password ) VALUES('$user_name_user','$user_ic','$username','$password')";
 
 mysql_select_db('training_system');
-$retval = mysql_query($sql,$conn);
-if(! $retval)
+$retval = mysql_query($sql, $conn);
+if($retval)
 {
-	die('could not get data: '. mysql_error());
+	echo "<br /><b>SUCCESS!</b>";
+	
 }
-$i=1;
-while ($row = mysql_fetch_array($retval))
-{
-echo "$i. $row[instructor_name] <a href='UpdateInstructorAdmin.php? Update=$row[instructor_id]'>Update</a><span>   </span><span>   </span><a href='ConfirmDeleteSubject.php?Update=$row[instructor_id]'>Delete</a><br><br>";
-	$i++;
+else{
+	die('could not get data: '. mysql_error());;
 }
 ?>
-</center>
+<br /><br />
+<a href="Account.php"><input type="submit" value="Back"/></a>
+
+</center></center>
 </body>
 </html>

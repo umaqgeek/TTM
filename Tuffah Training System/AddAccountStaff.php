@@ -27,35 +27,30 @@
 	<div id="Footer"></div>
 </div>
 <center>
-<h1>Instructor Name</h1>
+<h1>Add Staff</h1>
 <?php
 session_start();
 $name = $_SESSION['username'];
 echo $_SESSION['username'];
-$dbuser="root";
-$dbpass = "";
-$dbhost = "localhost";
-$conn = mysql_connect($dbhost,$dbuser,$dbpass);
-
-if(! $conn)
-{
-	die('could not connect: '. mysql_error());
-}
-$sql = "SELECT * FROM instructor";
-
-mysql_select_db('training_system');
-$retval = mysql_query($sql,$conn);
-if(! $retval)
-{
-	die('could not get data: '. mysql_error());
-}
-$i=1;
-while ($row = mysql_fetch_array($retval))
-{
-echo "$i. $row[instructor_name] <a href='UpdateInstructorAdmin.php? Update=$row[instructor_id]'>Update</a><span>   </span><span>   </span><a href='ConfirmDeleteSubject.php?Update=$row[instructor_id]'>Delete</a><br><br>";
-	$i++;
-}
 ?>
+<form action="ConfirmAddAccountStaff.php" method="POST">
+<table border="0" width="466">
+<tr>
+<td><b>Name :</b></td><td> <input size="50" type="text" name="user_name_user"/></td></tr>
+<tr>
+<td><b>User IC :</b></td><td> <input size="50" type="text" name="user_ic"/></td></tr>
+<tr>
+<td><b>Username :</b></td><td> <input size="50" type="text" name="username"/></td></tr>
+<tr>
+<td><b>Password :</b></td><td> <input size="50" type="password" name="password"/></td></tr>
+</table>
+<br />
+
+<tr>
+<td colspan="2">
+<center>
+<input type="submit" value="Add"/></center></td></tr>
+</form>
 </center>
 </body>
 </html>

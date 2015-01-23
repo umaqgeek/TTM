@@ -16,8 +16,7 @@ echo $_SESSION['username'];
 ?>
 <div id="Container">
 	<div id="Head">
-  		<center>
-  		<font size="20" color="#990000">TUFFAH TRAINING SYSTEM</font></center></div>
+  		<center></div>
 	<div id="Navbar">
 		<nav>
 			<ul>

@@ -14,7 +14,6 @@ session_start();
 $name = $_SESSION['username'];
 echo $_SESSION['username'];
 ?>
-<center>
 <div id="Container">
 	<div id="Head"></div>
 	<div id="Navbar">
@@ -32,15 +31,16 @@ echo $_SESSION['username'];
 	<div id="Content"></div>
 	<div id="Footer"></div>
 </div>
-<br />
 <center>
-<h1>Subject Application</h1>
+<h1>Account Staff Application</h1>
 <table width="900" border="3" rules="all" cellpadding="3">
 
 	<tr>
-	<th>Subject ID</th>
-    <th>Subject Name</th>
-    <th>Subject Code</th>
+	<th>User ID</th>
+    <th>Name</th>
+	<th>User IC</th>
+    <th>Username</th>
+	<th>Password</th>
 	<th>Status</th>
     </tr>
 	
@@ -54,7 +54,7 @@ if(! $conn)
 {
 	die('could not connect: '. mysql_error());
 }
-$sql = "SELECT * FROM subject";
+$sql = "SELECT * FROM user";
 
 mysql_select_db('training_system');
 $retval = mysql_query($sql,$conn);
@@ -67,10 +67,12 @@ while ($res = mysql_fetch_array($retval))
 {
 	 echo "<tr>";
 	 echo "<td align='center'>".$i."</td>";
-	 echo "<td align='center'>".$res['subject_name']."</td>";
-	 echo "<td align='center'>".$res['subject_code']."</td>";
-	 echo "<td align='center'><a href='UpdateSubjectAdmin.php?Update=$res[subject_id]'>Update</a>\n";
-	 echo "<a href='ConfirmDeleteSubject.php?Delete=$res[subject_id]'>Delete</a></td><br>";
+	 echo "<td align='center'>".$res['user_name_user']."</td>";
+	 echo "<td align='center'>".$res['user_ic']."</td>";
+	 echo "<td align='center'>".$res['username']."</td>";
+	 echo "<td align='center'>".$res['password']."</td>";
+	 echo "<td align='center'><a href='UpdateAccount.php?Update=$res[user_id_user]'>Update</a>\n";
+	 echo "<a href='ConfirmDeleteAccount.php?Delete=$res[user_id_user]'>Delete</a></td><br>";
 
 	 $i++;
  }
@@ -79,18 +81,20 @@ while ($res = mysql_fetch_array($retval))
 </center>
 
 <center>
-<h1>Add Subject</h1>
-<form action="ConfirmAddSubjectAdmin.php" method="POST">
+<h1>Add Staff</h1>
+<form action="ConfirmAddAccountStaff.php" method="POST">
 <table border="0" width="525">
-<tr><td><b>Subject Name:</b></td><td> <input size="50" type="text" name="subject_name"/></td></tr>
-<tr><td><b>Subject Code :</b></td><td> <input size="50" type="text" name="subject_code"/></td></tr>
+<tr><td><b>Name:</b></td><td> <input size="50" type="text" name="user_name_user"/></td></tr>
+<tr><td><b>Staff IC :</b></td><td> <input size="50" type="text" name="user_ic"/></td></tr>
+<tr><td><b>Username:</b></td><td> <input size="50" type="text" name="username"/></td></tr>
+<tr><td><b>Password :</b></td><td> <input size="50" type="password" name="password"/></td></tr>
 </table>
 <br />
 
 <tr>
 <td colspan="2">
 <center>
-<input type="submit" value="Add New Subject"/></center></td></tr>
+<input type="submit" value="Add New Staff"/></center></td></tr>
 <br />
 <br />
 </form>

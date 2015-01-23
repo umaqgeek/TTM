@@ -36,8 +36,7 @@ $row = mysql_fetch_array($sql);
 }
 ?>
 <div id="Container">
-	<div id="Head">
-  		<center><font size="20" color="#990000">TUFFAH TRAINING SYSTEM</font></center></div>
+	<div id="Head"></div>
 	<div id="Navbar">
 		<nav>
 			<ul>
@@ -45,6 +44,7 @@ $row = mysql_fetch_array($sql);
     			<li><a href="SubjectAdmin.php">Subject</a></li>
 				<li><a href="InstructorAdmin.php">Instructor</a></li>
 				<li><a href="TrainingAdmin.php">Training</a></li>
+				<li><a href="Account.php">Account</a></li>
 				<li><a href="logout.php">Logout</a></li>
 			</ul>
       </nav>

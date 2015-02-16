@@ -13,8 +13,8 @@ $(document).ready(function(){
 		
 		for (i=0; i<25; i++){
 			$(this)<?php
-				for ($i = 1; $i <= 50; $i++){
-					echo ".animate({opacity:1.0, marginLeft:c+=1}, 100, function() {
+				for ($i = 1; $i <= 25; $i++){
+					echo ".animate({opacity:1.0, marginLeft:c+=5.5}, 100, function() {
 						$(this).css(\"background-image\", \"url('assets/images/b".$i.".png')\");
 					})";
 				}

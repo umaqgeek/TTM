@@ -11,11 +11,11 @@ $(document).ready(function(){
 		$(this).css("background-repeat", "no-repeat");
 		$(this).css("background-color", "fff");
 		
-		for (i=0; i<25; i++){
+		for (i=0; i<13; i++){
 			$(this)<?php
-				for ($i = 1; $i <= 25; $i++){
-					echo ".animate({opacity:1.0, marginLeft:c+=5.5}, 100, function() {
-						$(this).css(\"background-image\", \"url('assets/images/b".$i.".png')\");
+				for ($i = 1; $i <= 30; $i++){
+					echo ".animate({opacity:1.}, 180, function() {
+						$(this).css(\"background-image\", \"url('assets/images/c".$i.".jpg')\");
 					})";
 				}
 			?>;
@@ -27,5 +27,5 @@ $(document).ready(function(){
 <style>
 
 </style>
-<div style="height:50%; width:50%; background-color:#996699"></div>
+<div style="height:450; width:650; background-image:url(assets/images/Untitled-1.png)"></div>
 
